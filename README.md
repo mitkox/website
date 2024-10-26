@@ -1,6 +1,6 @@
 # Emerging Technologies Labs
 
-Welcome to the mitko x Emerging Technologies Labs website repository. This project showcases the latest advancements and projects in emerging technologies.
+Welcome to the mitko x labs website repository. This project showcases the latest advancements and projects in emerging technologies.
 
 ## Table of Contents
 
