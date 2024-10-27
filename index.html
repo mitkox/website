@@ -2,257 +2,279 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mitko x labs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mitko X Labs | Enterprise and Industrial Technology Solutions</title>
+    <meta name="description" content="Mitko X Labs provides enterprise and industrial solutions, emerging technology solutions engineering, AI integration, IoT solutions, and technology consulting.">
+    <meta name="keywords" content="Enterprise Solutions, Industrial Solutions, Technology Consulting, AI Solutions, Edge AI, Offline AI, Custom AI Models, IoT, Emerging Technology, AI Agents Development, Industrial IoT">
+    <meta name="author" content="Mitko X Labs">
+    <link rel="canonical" href="https://mitkox.com/">
     <style>
+        @font-face {
+            font-family: 'Ubuntu Mono';
+            src: url('https://cdnjs.cloudflare.com/ajax/libs/UbuntuMono/1.0.3/ubuntumono-bold-webfont.woff2') format('woff2');
+            font-weight: 500;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: subpixel-antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --terminal-bg: #000000;
+            --terminal-text: #00ff00;
+            --text-glow: 0 0 2px rgba(79, 255, 79, 0.7);
+            --base-spacing: clamp(12px, 3vw, 24px);
+            --terminal-width: min(95%, 800px);
+            
+            --terminal-font-size: clamp(14px, 3.5vw, 18px);
+            --terminal-line-height: 1.4;
+            --font-weight: 500;
+        }
+
         body {
-            background-color: black;
-            color: #00ff00;
-            font-family: monospace;
+            background-color: var(--terminal-bg);
+            color: var(--terminal-text);
+            font-family: 'Ubuntu Mono', 'Courier New', monospace;
+            font-size: var(--terminal-font-size);
+            font-weight: var(--font-weight);
+            line-height: var(--terminal-line-height);
+            min-height: 100vh;
+            min-height: 100dvh;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
+            text-shadow: var(--text-glow);
+            overflow: hidden;
+            letter-spacing: 0.02em;
         }
 
         .terminal {
-            width: 800px;
-            height: 400px;
+            width: var(--terminal-width);
+            height: min(90vh, 600px);
+            height: min(90dvh, 600px);
             display: flex;
             flex-direction: column;
-            padding: 20px;
+            justify-content: center;
+            padding: var(--base-spacing);
+            background-color: var(--terminal-bg);
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: var(--terminal-text) var(--terminal-bg);
+            -webkit-overflow-scrolling: touch;
         }
 
-        .line {
+        .terminal::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        .terminal::-webkit-scrollbar-track {
+            background: var(--terminal-bg);
+        }
+
+        .terminal::-webkit-scrollbar-thumb {
+            background: var(--terminal-text);
+            opacity: 0.7;
+        }
+
+        .terminal__line {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
+            margin-bottom: 0.7em;
+            width: 100%;
+            padding: 0.2em 0;
+        }
+
+        .terminal__prompt {
+            color: var(--terminal-text);
+            margin-right: 0.8em;
             white-space: nowrap;
-            margin-bottom: 10px;
-            min-height: 24px;
+            flex-shrink: 0;
         }
 
-        .services-output {
-            margin-left: 8px;
+        .terminal__typed-text,
+        .terminal__command-output,
+        .terminal__services-output,
+        .terminal__contacts-output {
+            color: var(--terminal-text);
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
             white-space: pre-wrap;
-            word-wrap: break-word;
-            font-size: 1.2em; 
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
-        .cursor {
+        .terminal__cursor {
             display: inline-block;
-            width: 10px;
-            height: 20px;
-            background-color: #00ff00;
+            width: 0.6em;
+            height: 1.1em;
+            background-color: var(--terminal-text);
             animation: blink 1s step-end infinite;
             vertical-align: middle;
-            margin-left: 2px;
+            margin-left: 1px;
+            box-shadow: var(--text-glow);
         }
 
         @keyframes blink {
+            0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
 
-        .typed-text {
-            font-size: 1.2em;
-            display: inline;
+        .u-hidden {
+            display: none !important;
         }
 
-        .prompt {
-            color: #00ff00;
-            margin-right: 8px;
-            font-size: 1.2em;
+        ::-webkit-scrollbar {
+            width: 3px;
         }
 
-        .hidden {
-            display: none;
+        ::-webkit-scrollbar-track {
+            background: var(--terminal-bg);
         }
 
-        .user-host {
-            color: #00ff00;
+        ::-webkit-scrollbar-thumb {
+            background: var(--terminal-text);
+            opacity: 0.7;
         }
 
-        .password-prompt {
-            margin-left: 0;
-        }
-
-        .banner {
-            white-space: pre;
-            margin-bottom: 10px;
-            font-size: 1.2em; 
+        ::selection {
+            background: var(--terminal-text);
+            color: var(--terminal-bg);
+            text-shadow: none;
         }
     </style>
 </head>
 <body>
     <div class="terminal">
-        <div class="line">
-            <span class="prompt"><span class="user-host">mitko@own-your-ai</span>:~ $</span>
-            <div class="typed-text first-line"></div>
-            <span class="cursor first-cursor"></span>
+        <div class="terminal__line">
+            <span class="terminal__prompt">ai@mitkox:~$</span>
+            <div class="terminal__typed-text terminal__first-line"></div>
+            <span class="terminal__cursor terminal__first-cursor"></span>
         </div>
-        <div class="line hidden">
-            <span class="prompt password-prompt">Password: </span>
-            <div class="typed-text password-line"></div>
-            <span class="cursor password-cursor hidden"></span>
+        <div class="terminal__line u-hidden">
+            <div class="terminal__command-output">Welcome to mitko x labs</div>
         </div>
-        <div class="line hidden">
-            <div class="banner"></div>
+        <div class="terminal__line u-hidden">
+            <span class="terminal__prompt">ai@mitkox:~$</span>
+            <div class="terminal__typed-text terminal__services-command"></div>
+            <span class="terminal__cursor terminal__services-cursor u-hidden"></span>
         </div>
-        <div class="line hidden">
-            <span class="prompt"><span class="user-host">root@own-your-ai</span>:~ #</span>
-            <div class="typed-text services-command"></div>
-            <span class="cursor services-cursor hidden"></span>
+        <div class="terminal__line u-hidden">
+            <div class="terminal__command-output terminal__services-output"></div>
         </div>
-        <div class="line hidden">
-            <div class="services-output"></div>
+        <div class="terminal__line u-hidden">
+            <span class="terminal__prompt">ai@mitkox:~$</span>
+            <div class="terminal__typed-text terminal__contact-line"></div>
+            <span class="terminal__cursor terminal__contact-cursor u-hidden"></span>
         </div>
-        <div class="line hidden">
-            <span class="prompt"><span class="user-host">root@own-your-ai</span>:~ #</span>
-            <div class="typed-text contact-line"></div>
-            <span class="cursor contact-cursor hidden"></span>
+        <div class="terminal__line u-hidden">
+            <div class="terminal__command-output terminal__contacts-output"></div>
         </div>
     </div>
-
     <script>
-        const firstLine = "su";
-        const passwordLine = "";
-        const bannerText = "Welcome to mitko x labs";
-        const servicesCommand = "cat services";
+        const firstLine = "./hello-world";
+        const servicesCommand = "./services";
         const services = [
-        "Enterprise and Industrial Solutions",
-        "Emerging Technology Solutions Engineering",
-        "AI Solutions Interation",
-        "On Premises and Offline AI",
-        "On device AI and Edge AI",
-        "Custom AI Models and AI Agents Development",
-        "Industrial IoT and Connectivity Solutions",
-        "Strategy and Technology Consulting"
+            "Enterprise and Industrial Solutions",
+            "Emerging Technology Solutions Engineering",
+            "AI Solutions Integration",
+            "On Premises and Offline AI",
+            "On device AI and Edge AI",
+            "Custom AI Models and AI Agents Development",
+            "Industrial IoT and Connectivity Solutions",
+            "Strategy and Technology Consulting"
         ];
-        const contactLine = "Contact us at &#115;&#97;&#108;&#101;&#115;&#64;&#109;&#105;&#116;&#107;&#111;&#120;&#46;&#99;&#111;&#109;";
+        const contactLine = "./contacts";
+        const contacts = "Contact us at sales@mitkox.com";
         
-        const firstLineElement = document.querySelector('.first-line');
-        const passwordLineElement = document.querySelector('.password-line');
-        const bannerElement = document.querySelector('.banner');
-        const servicesCommandElement = document.querySelector('.services-command');
-        const servicesOutputElement = document.querySelector('.services-output');
-        const contactLineElement = document.querySelector('.contact-line');
-        
-        const firstCursor = document.querySelector('.first-cursor');
-        const passwordCursor = document.querySelector('.password-cursor');
-        const servicesCursor = document.querySelector('.services-cursor');
-        const contactCursor = document.querySelector('.contact-cursor');
-        
-        const passwordLineContainer = document.querySelector('.line:nth-child(2)');
-        const bannerContainer = document.querySelector('.line:nth-child(3)');
-        const servicesCommandContainer = document.querySelector('.line:nth-child(4)');
-        const servicesOutputContainer = document.querySelector('.line:nth-child(5)');
-        const contactLineContainer = document.querySelector('.line:nth-child(6)');
-        
-        let currentCharFirst = 0;
-        let currentCharBanner = 0;
-        let currentCharServices = 0;
-        let currentCharContact = 0;
-        let currentService = 0;
-        const typingSpeed = 100;
+        const elements = {
+            firstLine: document.querySelector('.terminal__first-line'),
+            servicesCommand: document.querySelector('.terminal__services-command'),
+            servicesOutput: document.querySelector('.terminal__services-output'),
+            contactLine: document.querySelector('.terminal__contact-line'),
+            contactsOutput: document.querySelector('.terminal__contacts-output'),
+            cursors: {
+                first: document.querySelector('.terminal__first-cursor'),
+                services: document.querySelector('.terminal__services-cursor'),
+                contact: document.querySelector('.terminal__contact-cursor')
+            },
+            containers: {
+                helloWorld: document.querySelector('.terminal__line:nth-child(2)'),
+                servicesCommand: document.querySelector('.terminal__line:nth-child(3)'),
+                servicesOutput: document.querySelector('.terminal__line:nth-child(4)'),
+                contactLine: document.querySelector('.terminal__line:nth-child(5)'),
+                contactsOutput: document.querySelector('.terminal__line:nth-child(6)')
+            }
+        };
 
-        function startTerminal() {
-            setTimeout(typeFirstLine, 500);
-        }
+        const state = {
+            currentCharFirst: 0,
+            currentCharServices: 0,
+            currentCharContact: 0,
+            typingSpeed: 100,
+            waitTime: 500
+        };
 
-        function typeFirstLine() {
-            if (currentCharFirst < firstLine.length) {
-                firstLineElement.textContent += firstLine.charAt(currentCharFirst);
-                currentCharFirst++;
-                setTimeout(typeFirstLine, typingSpeed);
-            } else {
-                setTimeout(showPasswordPrompt, 500);
+        const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+        const showElement = (element) => element.classList.remove('u-hidden');
+        const hideElement = (element) => element.classList.add('u-hidden');
+
+        async function typeText(element, text, stateKey) {
+            while (state[stateKey] < text.length) {
+                element.textContent += text.charAt(state[stateKey]);
+                state[stateKey]++;
+                await wait(state.typingSpeed);
             }
         }
 
-        function showPasswordPrompt() {
-            firstCursor.classList.add('hidden');
-            passwordLineContainer.classList.remove('hidden');
-            passwordCursor.classList.remove('hidden');
-            
-            setTimeout(() => {
-                simulatePasswordEntry();
-            }, 500);
-        }
-
-        function simulatePasswordEntry() {
-            setTimeout(() => {
-                passwordCursor.classList.add('hidden');
-                showBanner();
-            }, 500);
-        }
-
-        function showBanner() {
-            bannerContainer.classList.remove('hidden');
-            setTimeout(typeBanner, 500);
-        }
-
-        function typeBanner() {
-            if (currentCharBanner < bannerText.length) {
-                bannerElement.textContent += bannerText.charAt(currentCharBanner);
-                currentCharBanner++;
-                setTimeout(typeBanner, typingSpeed);
-            } else {
-                setTimeout(showServicesCommand, 500);
+        async function startTerminal() {
+            try {
+                await wait(state.waitTime);
+                await typeText(elements.firstLine, firstLine, 'currentCharFirst');
+                
+                hideElement(elements.cursors.first);
+                showElement(elements.containers.helloWorld);
+                
+                await wait(state.waitTime);
+                showElement(elements.containers.servicesCommand);
+                showElement(elements.cursors.services);
+                
+                await typeText(elements.servicesCommand, servicesCommand, 'currentCharServices');
+                
+                await wait(state.waitTime);
+                hideElement(elements.cursors.services);
+                showElement(elements.containers.servicesOutput);
+                elements.servicesOutput.textContent = services.join('\n');
+                
+                await wait(state.waitTime);
+                showElement(elements.containers.contactLine);
+                showElement(elements.cursors.contact);
+                
+                await typeText(elements.contactLine, contactLine, 'currentCharContact');
+                
+                await wait(state.waitTime);
+                hideElement(elements.cursors.contact);
+                showElement(elements.containers.contactsOutput);
+                elements.contactsOutput.textContent = contacts;
+            } catch (error) {
+                console.error('Terminal animation error:', error);
             }
         }
 
-        function showServicesCommand() {
-            servicesCommandContainer.classList.remove('hidden');
-            servicesCursor.classList.remove('hidden');
-            typeServicesCommand();
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', startTerminal);
+        } else {
+            startTerminal();
         }
-
-        function typeServicesCommand() {
-            if (currentCharServices < servicesCommand.length) {
-                servicesCommandElement.textContent += servicesCommand.charAt(currentCharServices);
-                currentCharServices++;
-                setTimeout(typeServicesCommand, typingSpeed);
-            } else {
-                setTimeout(showServices, 500);
-            }
-        }
-
-        function showServices() {
-            servicesCursor.classList.add('hidden');
-            servicesOutputContainer.classList.remove('hidden');
-            typeServices();
-        }
-
-        function typeServices() {
-            if (currentService < services.length) {
-                servicesOutputElement.textContent += services[currentService] + '\n';
-                currentService++;
-                setTimeout(typeServices, typingSpeed * 3);
-            } else {
-                setTimeout(showContactLine, 500);
-            }
-        }
-
-        function showContactLine() {
-            contactLineContainer.classList.remove('hidden');
-            contactCursor.classList.remove('hidden');
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = contactLine;
-            const decodedText = tempDiv.textContent;
-            typeContactLine(decodedText);
-        }
-
-        function typeContactLine(decodedText) {
-            if (currentCharContact < decodedText.length) {
-                contactLineElement.textContent += decodedText.charAt(currentCharContact);
-                currentCharContact++;
-                setTimeout(() => typeContactLine(decodedText), typingSpeed);
-            }
-        }
-
-        window.onload = startTerminal;
     </script>
 </body>
 </html>
