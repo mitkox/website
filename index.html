@@ -8,12 +8,27 @@
     <meta name="keywords" content="Enterprise Solutions, Industrial Solutions, Technology Consulting, AI Solutions, Edge AI, Offline AI, Custom AI Models, IoT, Emerging Technology, AI Agents Development, Industrial IoT">
     <meta name="author" content="Mitko X Labs">
     <link rel="canonical" href="https://mitkox.com/">
+    
+    <meta property="og:title" content="Mitko X Labs | Enterprise and Industrial Technology Solutions">
+    <meta property="og:description" content="Mitko X Labs provides enterprise and industrial solutions, emerging technology solutions engineering, AI integration, IoT solutions, and technology consulting.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mitkox.com/">
+    <meta name="twitter:card" content="summary">
+    
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline'">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
     <style>
         @font-face {
             font-family: 'Ubuntu Mono';
             src: url('https://cdnjs.cloudflare.com/ajax/libs/UbuntuMono/1.0.3/ubuntumono-bold-webfont.woff2') format('woff2');
-            font-weight: 500;
+            font-weight: 420;
             font-display: swap;
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
         }
 
         * {
@@ -31,10 +46,9 @@
             --text-glow: 0 0 2px rgba(79, 255, 79, 0.7);
             --base-spacing: clamp(12px, 3vw, 24px);
             --terminal-width: min(95%, 800px);
-            
             --terminal-font-size: clamp(14px, 3.5vw, 18px);
             --terminal-line-height: 1.4;
-            --font-weight: 500;
+            --font-weight: 420;
         }
 
         body {
@@ -70,19 +84,8 @@
             scrollbar-width: thin;
             scrollbar-color: var(--terminal-text) var(--terminal-bg);
             -webkit-overflow-scrolling: touch;
-        }
-
-        .terminal::-webkit-scrollbar {
-            width: 3px;
-        }
-
-        .terminal::-webkit-scrollbar-track {
-            background: var(--terminal-bg);
-        }
-
-        .terminal::-webkit-scrollbar-thumb {
-            background: var(--terminal-text);
-            opacity: 0.7;
+            scroll-behavior: smooth;
+            overscroll-behavior-y: contain;
         }
 
         .terminal__line {
@@ -91,6 +94,8 @@
             margin-bottom: 0.7em;
             width: 100%;
             padding: 0.2em 0;
+            content-visibility: auto;
+            contain-intrinsic-size: 0 1.4em;
         }
 
         .terminal__prompt {
@@ -118,21 +123,28 @@
             width: 0.6em;
             height: 1.1em;
             background-color: var(--terminal-text);
-            animation: blink 1s step-end infinite;
+            animation: blink 0.8s step-end infinite;
             vertical-align: middle;
             margin-left: 1px;
             box-shadow: var(--text-glow);
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            .terminal__cursor {
+                animation: none;
+            }
+        }
+
         @keyframes blink {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+            50% { opacity: 0.8; }
         }
 
         .u-hidden {
             display: none !important;
         }
 
+        /* Scrollbar Styles */
         ::-webkit-scrollbar {
             width: 3px;
         }
@@ -151,35 +163,68 @@
             color: var(--terminal-bg);
             text-shadow: none;
         }
+
+        @media (max-width: 480px) {
+            :root {
+                --terminal-font-size: 14px;
+                --base-spacing: 8px;
+                --terminal-width: 98%;
+            }
+            
+            .terminal {
+                height: 95vh;
+                height: 95dvh;
+            }
+        }
+
+        @media (hover: none) {
+            .terminal__line:active {
+                background-color: rgba(0, 255, 0, 0.1);
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="terminal">
+    <div class="terminal" role="main" aria-label="Terminal Interface">
         <div class="terminal__line">
-            <span class="terminal__prompt">ai@mitkox:~$</span>
+            <span class="terminal__prompt" aria-hidden="true">ai@mitkox:~$</span>
             <div class="terminal__typed-text terminal__first-line"></div>
             <span class="terminal__cursor terminal__first-cursor"></span>
         </div>
-        <div class="terminal__line u-hidden">
+        <div class="terminal__line u-hidden terminal__hello-world-output">
             <div class="terminal__command-output">Welcome to Mitko X Labs</div>
         </div>
-        <div class="terminal__line u-hidden">
-            <span class="terminal__prompt">ai@mitkox:~$</span>
+        <div class="terminal__line u-hidden terminal__services-command-container">
+            <span class="terminal__prompt" aria-hidden="true">ai@mitkox:~$</span>
             <div class="terminal__typed-text terminal__services-command"></div>
             <span class="terminal__cursor terminal__services-cursor u-hidden"></span>
         </div>
-        <div class="terminal__line u-hidden">
+        <div class="terminal__line u-hidden terminal__services-output-container">
             <div class="terminal__command-output terminal__services-output"></div>
         </div>
-        <div class="terminal__line u-hidden">
-            <span class="terminal__prompt">ai@mitkox:~$</span>
+        <div class="terminal__line u-hidden terminal__contact-line-container">
+            <span class="terminal__prompt" aria-hidden="true">ai@mitkox:~$</span>
             <div class="terminal__typed-text terminal__contact-line"></div>
             <span class="terminal__cursor terminal__contact-cursor u-hidden"></span>
         </div>
-        <div class="terminal__line u-hidden">
+        <div class="terminal__line u-hidden terminal__contacts-output-container">
             <div class="terminal__command-output terminal__contacts-output"></div>
         </div>
     </div>
+
+    <noscript>
+        <style>
+            .u-hidden { display: block !important; }
+            .terminal__cursor { display: none !important; }
+        </style>
+        <div class="terminal__line">
+            <div class="terminal__command-output">
+                Please enable JavaScript to view the interactive terminal interface.
+                Contact us at sales@mitkox.com
+            </div>
+        </div>
+    </noscript>
+
     <script>
         const firstLine = "./hello-world";
         const servicesCommand = "./services";
@@ -194,87 +239,118 @@
             "Strategy and Technology Consulting"
         ];
         const contactLine = "./contacts";
-        const contacts = "Contact us at sales@mitkox.com";
+        const contacts = 'Contact us at <a href="mailto:sales@mitkox.com" style="color: inherit; text-decoration: none;">sales@mitkox.com</a>';
         
         const elements = {
-            firstLine: document.querySelector('.terminal__first-line'),
-            servicesCommand: document.querySelector('.terminal__services-command'),
-            servicesOutput: document.querySelector('.terminal__services-output'),
-            contactLine: document.querySelector('.terminal__contact-line'),
-            contactsOutput: document.querySelector('.terminal__contacts-output'),
+            textElements: {
+                firstLine: document.querySelector('.terminal__first-line'),
+                servicesCommand: document.querySelector('.terminal__services-command'),
+                servicesOutput: document.querySelector('.terminal__services-output'),
+                contactLine: document.querySelector('.terminal__contact-line'),
+                contactsOutput: document.querySelector('.terminal__contacts-output')
+            },
             cursors: {
                 first: document.querySelector('.terminal__first-cursor'),
                 services: document.querySelector('.terminal__services-cursor'),
                 contact: document.querySelector('.terminal__contact-cursor')
             },
             containers: {
-                helloWorld: document.querySelector('.terminal__line:nth-child(2)'),
-                servicesCommand: document.querySelector('.terminal__line:nth-child(3)'),
-                servicesOutput: document.querySelector('.terminal__line:nth-child(4)'),
-                contactLine: document.querySelector('.terminal__line:nth-child(5)'),
-                contactsOutput: document.querySelector('.terminal__line:nth-child(6)')
+                helloWorld: document.querySelector('.terminal__hello-world-output'),
+                servicesCommand: document.querySelector('.terminal__services-command-container'),
+                servicesOutput: document.querySelector('.terminal__services-output-container'),
+                contactLine: document.querySelector('.terminal__contact-line-container'),
+                contactsOutput: document.querySelector('.terminal__contacts-output-container')
             }
         };
 
         const state = {
-            currentCharFirst: 0,
-            currentCharServices: 0,
-            currentCharContact: 0,
-            typingSpeed: 100,
+            firstLine: { currentChar: 0 },
+            servicesCommand: { currentChar: 0 },
+            contactLine: { currentChar: 0 },
             waitTime: 500
         };
 
-        const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+        function wait(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        
         const showElement = (element) => element.classList.remove('u-hidden');
         const hideElement = (element) => element.classList.add('u-hidden');
 
+        function getRandomTypingSpeed() {
+            const minSpeed = 30;
+            const maxSpeed = 150;
+            return Math.floor(Math.random() * (maxSpeed - minSpeed + 1)) + minSpeed;
+        }
+
+        function getRandomWaitTime() {
+            const minWait = 300;
+            const maxWait = 700;
+            return Math.floor(Math.random() * (maxWait - minWait + 1)) + minWait;
+        }
+
         async function typeText(element, text, stateKey) {
-            while (state[stateKey] < text.length) {
-                element.textContent += text.charAt(state[stateKey]);
-                state[stateKey]++;
-                await wait(state.typingSpeed);
+            while (state[stateKey].currentChar < text.length) {
+                element.textContent += text.charAt(state[stateKey].currentChar);
+                state[stateKey].currentChar++;
+                await wait(getRandomTypingSpeed());
             }
         }
 
         async function startTerminal() {
             try {
-                await wait(state.waitTime);
-                await typeText(elements.firstLine, firstLine, 'currentCharFirst');
+                await typeText(elements.textElements.firstLine, firstLine, 'firstLine');
                 
                 hideElement(elements.cursors.first);
                 showElement(elements.containers.helloWorld);
                 
-                await wait(state.waitTime);
+                await wait(getRandomWaitTime());
+
                 showElement(elements.containers.servicesCommand);
                 showElement(elements.cursors.services);
                 
-                await typeText(elements.servicesCommand, servicesCommand, 'currentCharServices');
+                await typeText(elements.textElements.servicesCommand, servicesCommand, 'servicesCommand');
                 
-                await wait(state.waitTime);
+                await wait(getRandomWaitTime());
                 hideElement(elements.cursors.services);
                 showElement(elements.containers.servicesOutput);
-                elements.servicesOutput.textContent = services.join('\n');
+                elements.textElements.servicesOutput.textContent = services.join('\n');
                 
-                await wait(state.waitTime);
+                await wait(getRandomWaitTime());
+                
                 showElement(elements.containers.contactLine);
                 showElement(elements.cursors.contact);
                 
-                await typeText(elements.contactLine, contactLine, 'currentCharContact');
+                await typeText(elements.textElements.contactLine, contactLine, 'contactLine');
                 
-                await wait(state.waitTime);
                 hideElement(elements.cursors.contact);
                 showElement(elements.containers.contactsOutput);
-                elements.contactsOutput.textContent = contacts;
+                elements.textElements.contactsOutput.innerHTML = contacts;
             } catch (error) {
                 console.error('Terminal animation error:', error);
+                document.querySelectorAll('.u-hidden').forEach(el => el.classList.remove('u-hidden'));
+                document.querySelectorAll('.terminal__cursor').forEach(el => el.style.display = 'none');
             }
         }
+
+        window.addEventListener('error', function(e) {
+            console.error('Terminal animation error:', e);
+            document.querySelectorAll('.u-hidden').forEach(el => el.classList.remove('u-hidden'));
+            document.querySelectorAll('.terminal__cursor').forEach(el => el.style.display = 'none');
+        });
 
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', startTerminal);
         } else {
             startTerminal();
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const terminal = document.querySelector('.terminal');
+            if (terminal) {
+                terminal.dataset.loaded = 'true';
+            }
+        });
     </script>
 </body>
 </html>
