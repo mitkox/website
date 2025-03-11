@@ -186,18 +186,24 @@ a:hover {
     margin-top: 2rem;
 }
 
-/* Header & Navigation */
+/* Header & Navigation - Fixed at top */
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(15, 23, 42, 0.95);
+    background-color: var(--background-color);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px); /* Safari support */
     z-index: 1000;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    height: auto;
+}
+
+/* Ensure content starts below fixed header */
+body {
+    padding-top: 70px;
 }
 
 .header.scrolled {
@@ -225,22 +231,52 @@ a:hover {
     color: var(--primary-color);
 }
 
-.nav-menu {
+/* Basic navigation setup */
+.navbar {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding: 1rem 0;
+    width: 100%;
+}
+
+/* Navigation menu - hidden by default on all screen sizes */
+.nav-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    flex-direction: column;
     list-style: none;
-    gap: 2rem;
-    height: 100%;
+    margin: 0;
+    padding: 1.5rem;
+    gap: 1rem;
+    background-color: var(--card-background);
+    width: 100%;
+    max-width: 250px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 0 10px;
+    z-index: 100;
+}
+
+/* Show menu when active */
+.nav-menu.active {
+    display: flex !important;
+}
+
+.nav-menu li {
+    width: 100%;
+    margin: 0.5rem 0;
 }
 
 .nav-link {
-    font-weight: 500;
     color: var(--text-color);
+    font-weight: 500;
+    text-decoration: none;
     transition: color 0.3s ease;
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 100%;
+    display: block;
+    padding: 0.5rem 0;
+    width: 100%;
 }
 
 .nav-link:hover,
@@ -248,24 +284,41 @@ a:hover {
     color: var(--primary-color);
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    transition: width 0.3s ease;
+/* Hamburger menu toggle - always visible */
+.nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1001;
 }
 
-.nav-link:hover::after,
-.nav-link.active::after {
+.nav-toggle span {
+    display: block;
     width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger to X transformation */
+.nav-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
 }
 
 .nav-toggle {
-    display: none;
+    display: flex; /* Always visible on all screen sizes */
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
@@ -282,6 +335,7 @@ a:hover {
     background-color: var(--primary-color);
     border-radius: 3px;
     transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(99, 102, 241, 0.5);
 }
 
 /* Hero Section */
@@ -803,85 +857,71 @@ a:hover {
     }
 }
 
-/* Make the header sticky on desktop */
+/* Make the header sticky on all devices */
 .header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 1000;
     background-color: var(--background-color);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
-/* Adjust mobile menu for better visibility and interaction */
-@media (max-width: 768px) {
-    .header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 100;
-    }
-    
-    /* Hide nav menu by default on mobile */
-    .nav-menu {
-        display: none;
-        position: fixed;
-        top: 70px; /* Adjust based on your header height */
-        right: 0;
-        width: 80%;
-        max-width: 300px;
-        height: auto;
-        background-color: var(--card-background);
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 2rem;
-        border-radius: 0 0 0 10px;
-        z-index: 99;
-    }
-    
-    /* Show menu when active class is applied */
-    .nav-menu.active {
-        display: flex !important;
-    }
-    
-    .nav-menu li {
-        margin: 1rem 0;
-        width: 100%;
-    }
-    
-    .nav-menu .nav-link {
-        width: 100%;
-        display: block;
-        padding: 0.8rem 0;
-        font-size: 1.2rem;
-    }
-    
-    /* Adjust spacing for fixed header */
-    main {
-        padding-top: 70px;
-    }
-    
-    /* Show the toggle button on mobile */
-    .nav-toggle {
-        display: flex;
-        cursor: pointer;
-        z-index: 101;
-    }
-    
-    /* Hamburger menu animation */
-    .nav-toggle.active span:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-    }
-    
-    .nav-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .nav-toggle.active span:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-    }
+/* Adjust menu for all screen sizes */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+/* Navigation item styling */
+.nav-menu li {
+    margin: 1rem 0;
+    width: 100%;
+}
+
+.nav-menu .nav-link {
+    width: 100%;
+    display: block;
+    padding: 0.8rem 0;
+    font-size: 1.2rem;
+    color: var(--primary-light);
+}
+
+.nav-menu .nav-link:hover {
+    color: white;
+    transform: translateX(5px);
+}
+
+/* Adjust spacing for fixed header */
+main {
+    padding-top: 80px; /* Increase padding to accommodate fixed header */
+}
+
+/* Ensure all sections have enough space from the top */
+section {
+    padding-top: 2rem;
+}
+
+/* Hamburger menu animation */
+.nav-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Add some spacing below the header */
+header + section, header + main {
+    padding-top: 80px;
 }
 
 /* Particles background */
