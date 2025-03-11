@@ -101,53 +101,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Navigation menu functionality
+// Add shadow to header when scrolling
 document.addEventListener('DOMContentLoaded', function() {
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
     const header = document.querySelector('.header');
 
-    if (navToggle && navMenu) {
-        // Toggle menu when clicking the hamburger icon
-        navToggle.addEventListener('click', function(e) {
-            e.stopPropagation(); // Prevent event from bubbling
-            navToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            document.body.classList.toggle('no-scroll');
-        });
-
-        // Close menu when clicking on any nav link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                navToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-            });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!navToggle.contains(e.target) && !navMenu.contains(e.target) && navMenu.classList.contains('active')) {
-                navToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-            }
-        });
-
-        // Make sure menu resets on resize
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-            }
-        });
-    }
-
-    // Keep track of scroll position to add styling to header
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 10) {
+        if (window.scrollY > 0) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
