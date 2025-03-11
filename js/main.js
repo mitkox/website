@@ -20,6 +20,27 @@ if (navToggle && navMenu) {
     navToggle.setAttribute('aria-label', 'Toggle navigation menu');
     navMenu.setAttribute('aria-hidden', 'true');
     navMenu.setAttribute('role', 'navigation');
+    
+    // Close mobile menu when clicking on a nav link
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navMenu.setAttribute('aria-hidden', 'true');
+        });
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !navToggle.contains(e.target) && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navMenu.setAttribute('aria-hidden', 'true');
+        }
+    });
 }
 
 // Navigation active state with performance optimization
