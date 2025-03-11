@@ -799,6 +799,7 @@ a:hover {
 }
 
 /* Media Queries */
+/* Hide navigation menu on smaller screens by default */
 @media (max-width: 992px) {
     h1 {
         font-size: 2.5rem;
@@ -878,10 +879,12 @@ a:hover {
         padding: 0 1.25rem;
     }
     
+    /* Hide navigation menu by default on mobile */
     .nav-menu {
+        display: none; /* Hide by default */
         position: fixed;
         top: 70px;
-        right: -100%; /* Changed from left to right for a better slide effect */
+        right: -100%;
         width: 100%;
         height: calc(100vh - 70px);
         background-color: rgba(1, 1, 2, 0.98);
@@ -891,14 +894,15 @@ a:hover {
         align-items: center;
         justify-content: center;
         gap: 2rem;
-        transition: right 0.3s ease; /* Changed from left to right */
-        overflow-y: auto; /* Enable scrolling for smaller screens */
+        transition: right 0.3s ease;
+        overflow-y: auto;
         z-index: 100;
         border-top: 1px solid rgba(99, 102, 241, 0.1);
     }
     
     .nav-menu.active {
-        right: 0; /* Changed from left to right */
+        display: flex; /* Show when active */
+        right: 0;
     }
     
     .nav-toggle {
