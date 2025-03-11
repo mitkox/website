@@ -805,6 +805,44 @@ a:hover {
     }
 }
 
+/* Particles background */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Make sure all elements are above particles */
+.header, main, section, footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* Subtle animation classes */
+.fade-in {
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.gradient-pulse {
+    animation: gradientPulse 5s ease infinite;
+}
+
+@keyframes gradientPulse {
+    0% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(10deg); }
+    100% { filter: hue-rotate(0deg); }
+}
+
 /* Media Queries */
 /* Hide navigation menu on smaller screens by default */
 @media (max-width: 992px) {

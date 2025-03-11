@@ -20,6 +20,7 @@
     <title>mitko x | Enterprise Technology Solutions</title>
     <link rel="canonical" href="https://mitkox.com">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/aos.css">
     <!-- Removed Font Awesome to eliminate icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,9 +29,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
 </head>
-<body class="dark-theme">
+<body class="dark-theme" data-aos-easing="ease-out-cubic" data-aos-duration="800" data-aos-delay="0">
     <!-- Skip to main content for accessibility -->
     <a href="#main" class="skip-link">Skip to main content</a>
+    <div id="particles-js"></div>
     <header class="header">
         <div class="container">
             <nav class="navbar">
@@ -59,10 +61,10 @@
     <section id="home" class="hero-section">
         <div class="container">
             <div class="hero-content centered">
-                <h1>Enterprise & Industrial<br><span class="gradient-text">AI Solutions</span></h1>
-                <div class="hero-accent-line"></div>
-                <p>Transforming businesses through cutting-edge technology and AI integration</p>
-                <div class="hero-buttons">
+                <h1 data-aos="fade-up" data-aos-delay="100">Enterprise & Industrial<br><span class="gradient-text">AI Solutions</span></h1>
+                <div class="hero-accent-line" data-aos="fade-up" data-aos-delay="200"></div>
+                <p data-aos="fade-up" data-aos-delay="300">Transforming businesses through cutting-edge technology and AI integration</p>
+                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
                     <a href="#services" class="btn btn-primary">Explore Services</a>
                     <a href="#contact" class="btn btn-secondary">Contact Us</a>
                 </div>
@@ -78,41 +80,41 @@
     <section id="services" class="services-section">
         <div class="container">
             <div class="section-header centered">
-                <h2><span class="gradient-text">Our Services</span></h2>
-                <p>Comprehensive technology solutions tailored for enterprise needs</p>
-                <div class="section-accent-line"></div>
+                <h2 data-aos="fade-up"><span class="gradient-text">Our Services</span></h2>
+                <p data-aos="fade-up" data-aos-delay="100">Comprehensive technology solutions tailored for enterprise needs</p>
+                <div class="section-accent-line" data-aos="fade-up" data-aos-delay="200"></div>
             </div>
             <div class="services-grid centered">
-                <div class="service-card">
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
                     <div class="service-icon"></div>
                     <h3>Enterprise & Industrial Solutions</h3>
                     <p>Custom technology solutions designed for large-scale enterprise operations and industrial environments</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
                     <div class="service-icon"></div>
                     <h3>Emerging Technology Solutions</h3>
                     <p>Harnessing the power of cutting-edge technologies to solve complex business challenges</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
                     <div class="service-icon"></div>
                     <h3>AI Solutions Integration</h3>
                     <p>Seamless integration of artificial intelligence into your existing business operations and systems</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
                     <div class="service-icon">
                         <i class="fas fa-server"></i>
                     </div>
                     <h3>On-Premises & Offline AI</h3>
                     <p>Secure, self-contained AI solutions that operate without requiring constant cloud connectivity</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
                     <div class="service-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h3>On-device & Edge AI</h3>
                     <p>AI solutions optimized for edge devices, reducing latency and enhancing performance where it matters</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
                     <div class="service-icon">
                         <i class="fas fa-code-branch"></i>
                     </div>
@@ -213,6 +215,8 @@
         </div>
     </footer>
 
+    <script src="js/particles.min.js"></script>
+    <script src="js/aos.min.js"></script>
     <script src="js/main.js"></script>
     
     <!-- Structured data for SEO -->
