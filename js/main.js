@@ -8,6 +8,57 @@ document.addEventListener('DOMContentLoaded', () => {
         mirror: true
     });
     
+    // Initialize typewriter effect
+    const typewriterElement = document.getElementById('typewriter');
+    if (typewriterElement) {
+        const phrases = [
+            'Industrial AI Solutions',
+            'Edge Computing',
+            'On-Premises AI',
+            'Custom AI Models',
+            'AI Agents',
+            'Industrial IoT'
+        ];
+        
+        let currentPhraseIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+        
+        function typeEffect() {
+            const currentPhrase = phrases[currentPhraseIndex];
+            
+            if (isDeleting) {
+                // Deleting text
+                typewriterElement.textContent = currentPhrase.substring(0, currentCharIndex - 1);
+                currentCharIndex--;
+                typingSpeed = 50; // Faster when deleting
+            } else {
+                // Typing text
+                typewriterElement.textContent = currentPhrase.substring(0, currentCharIndex + 1);
+                currentCharIndex++;
+                typingSpeed = 100; // Normal typing speed
+            }
+            
+            // Check if word is complete
+            if (!isDeleting && currentCharIndex === currentPhrase.length) {
+                // Pause at the end of typing
+                isDeleting = true;
+                typingSpeed = 1500; // Wait before deleting
+            } else if (isDeleting && currentCharIndex === 0) {
+                // Move to next phrase after deleting
+                isDeleting = false;
+                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                typingSpeed = 500; // Pause before typing next word
+            }
+            
+            setTimeout(typeEffect, typingSpeed);
+        }
+        
+        // Start the typing effect
+        setTimeout(typeEffect, 1000);
+    }
+    
     // Initialize particles.js
     if (document.getElementById('particles-js')) {
         particlesJS('particles-js', {
