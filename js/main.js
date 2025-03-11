@@ -107,14 +107,21 @@ const navMenu = document.getElementById('navMenu');
 
 // Check if elements exist before adding event listeners
 if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
+    // Toggle menu when clicking the hamburger icon
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent event bubbling
         navMenu.classList.toggle('active');
         document.body.classList.toggle('no-scroll');
+        
+        // Add animation to toggle button
+        navToggle.classList.toggle('active');
         
         // For accessibility
         const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
         navToggle.setAttribute('aria-expanded', !expanded);
         navMenu.setAttribute('aria-hidden', expanded);
+        
+        console.log('Menu toggled. Active state:', navMenu.classList.contains('active'));
     });
     
     // Initialize ARIA attributes
@@ -129,6 +136,7 @@ if (navToggle && navMenu) {
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
             document.body.classList.remove('no-scroll');
             navToggle.setAttribute('aria-expanded', 'false');
             navMenu.setAttribute('aria-hidden', 'true');
@@ -139,9 +147,19 @@ if (navToggle && navMenu) {
     document.addEventListener('click', (e) => {
         if (!navMenu.contains(e.target) && !navToggle.contains(e.target) && navMenu.classList.contains('active')) {
             navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
             document.body.classList.remove('no-scroll');
             navToggle.setAttribute('aria-expanded', 'false');
             navMenu.setAttribute('aria-hidden', 'true');
+        }
+    });
+    
+    // Make sure menu is visible on resize if viewport width changes
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            document.body.classList.remove('no-scroll');
         }
     });
 }
