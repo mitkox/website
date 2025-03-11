@@ -798,6 +798,13 @@ a:hover {
     }
 }
 
+/* Mobile hide utility class */
+@media (max-width: 768px) {
+    .mobile-hide {
+        display: none !important;
+    }
+}
+
 /* Media Queries */
 /* Hide navigation menu on smaller screens by default */
 @media (max-width: 992px) {
