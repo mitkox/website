@@ -268,48 +268,31 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Email protection to prevent spam
+// Simple email protection to prevent spam
 document.addEventListener('DOMContentLoaded', function() {
-    const revealButtons = document.querySelectorAll('.reveal-email');
+    const contactButtons = document.querySelectorAll('.contact-btn');
     
-    if (revealButtons.length > 0) {
-        revealButtons.forEach(button => {
+    // Setup contact buttons
+    if (contactButtons.length > 0) {
+        contactButtons.forEach(button => {
             button.addEventListener('click', function() {
-                const emailContainer = this.closest('.email-protection');
-                const emailSpan = emailContainer.querySelector('.email-text');
+                const name = this.getAttribute('data-name');
+                const domain = this.getAttribute('data-domain');
                 
-                if (emailSpan) {
-                    const name = emailSpan.getAttribute('data-name');
-                    const domain = emailSpan.getAttribute('data-domain');
+                if (name && domain) {
+                    // Only construct the email address when the button is clicked
+                    const email = `${name}@${domain}`;
                     
-                    if (name && domain) {
-                        // Generate email address on-demand
-                        const email = `${name}@${domain}`;
-                        
-                        // Replace text with actual email address
-                        const emailLink = document.createElement('a');
-                        emailLink.href = `mailto:${email}`;
-                        emailLink.textContent = email;
-                        emailLink.className = 'revealed-email';
-                        
-                        // Replace the span and button with the link
-                        emailContainer.innerHTML = '';
-                        emailContainer.appendChild(emailLink);
-                        
-                        // Add success message
-                        const successMsg = document.createElement('div');
-                        successMsg.className = 'email-success';
-                        successMsg.innerHTML = '<i class="fas fa-check-circle"></i> Email revealed. Click to send a message.';
-                        emailContainer.appendChild(successMsg);
-                        
-                        // Animate the success message
-                        setTimeout(() => {
-                            successMsg.style.opacity = '0';
-                            setTimeout(() => {
-                                successMsg.remove();
-                            }, 500);
-                        }, 3000);
-                    }
+                    // Add a subtle button click effect
+                    this.classList.add('clicked');
+                    setTimeout(() => {
+                        this.classList.remove('clicked');
+                    }, 300);
+                    
+                    // Open the user's mail client
+                    setTimeout(() => {
+                        window.location.href = `mailto:${email}`;
+                    }, 100);
                 }
             });
         });
