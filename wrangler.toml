@@ -1,0 +1,15 @@
+name = "mitkox-website"
+type = "webpack"
+account_id = "" # You'll need to add your Cloudflare account ID here
+workers_dev = true
+route = ""
+zone_id = "" # You'll need to add your zone ID if you're using a custom domain
+
+[site]
+bucket = "./"
+entry-point = "workers-site"
+
+[env.production]
+workers_dev = false
+# Add your production domain here if needed
+# routes = ["example.com/*"]

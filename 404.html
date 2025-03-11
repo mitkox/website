@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - mitko x</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <style>
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+            text-align: center;
+            padding: 0 1rem;
+        }
+        .error-code {
+            font-size: 6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .error-message {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo" style="display: flex; align-items: center;">
+                    <a href="/" style="display: flex; align-items: center;">
+                        <img src="/img/logo.svg" alt="mitko x logo" class="site-logo" style="height: 40px; width: auto; vertical-align: middle;">
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="error-container">
+                <div class="error-code">404</div>
+                <div class="error-message">Page not found</div>
+                <p>The page you're looking for doesn't exist or has been moved.</p>
+                <div class="hero-accent-line"></div>
+                <a href="/" class="btn btn-primary">Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content" style="text-align: center;">
+                <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px; margin-bottom: 2rem;">
+                    <div style="display: flex; align-items: center;">
+                        <img src="/img/logo.svg" alt="mitko x logo" class="site-logo" style="height: 40px; width: auto;">
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <p style="font-size: 1.1rem; opacity: 0.9; margin: 0;">Enterprise Technology Solutions</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> mitko x. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

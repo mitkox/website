@@ -1,0 +1,6 @@
+# Robots.txt for mitkox.com
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://mitkox.com/sitemap.xml
