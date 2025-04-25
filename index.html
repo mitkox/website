@@ -4,23 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="mitko x - Enterprise AI, Industrial Solutions, Edge AI, and Custom AI Models. Professional technology solutions for large enterprises.">
+    <meta name="description" content="Mitko X - Enterprise AI, Industrial Solutions, Edge AI, and Custom AI Models. Professional technology solutions for large enterprises.">
     <meta name="keywords" content="Enterprise Solutions, Industrial AI, Edge AI, On-Premises AI, Custom AI Models, AI Agents, Industrial IoT, Technology Consulting">
-    <meta name="author" content="mitko x">
+    <meta name="author" content="Mitko X">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="mitko x | Enterprise Technology Solutions">
+    <meta property="og:title" content="Mitko X | Enterprise Technology Solutions">
     <meta property="og:description" content="Enterprise AI, Industrial Solutions, Edge AI, and Custom AI Models. Professional technology solutions for large enterprises.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mitkox.com">
     <meta property="og:image" content="https://mitkox.com/img/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="mitko x | Enterprise Technology Solutions">
+    <meta name="twitter:title" content="Mitko X | Enterprise Technology Solutions">
     <meta name="twitter:description" content="Enterprise AI, Industrial Solutions, Edge AI, and Custom AI Models. Professional technology solutions for large enterprises.">
     <meta name="theme-color" content="#0f172a">
-    <title>mitko x | Enterprise Technology Solutions</title>
+    <title>Mitko X | Enterprise Technology Solutions</title>
     <link rel="canonical" href="https://mitkox.com">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/aos.css">
+<style>
+/* Sticky navbar for Home, Solutions, Contact */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #0f172a;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.navbar {
+  background: transparent;
+}
+.nav-menu {
+  background: transparent;
+}
+@media (max-width: 900px) {
+  .header {
+    position: sticky;
+    top: 0;
+  }
+}
+</style>
     <!-- Removed Font Awesome to eliminate icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,18 +55,18 @@
     <!-- Skip to main content for accessibility -->
     <a href="#main" class="skip-link">Skip to main content</a>
     <div id="particles-js"></div>
-    <header class="header">
+    <header class="header" style="position: sticky; top: 0; z-index: 1000; background: #0f172a; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
         <div class="container">
             <nav class="navbar">
                 <div class="logo">
                     <a href="#">
-                        <img src="img/logo.svg" alt="mitko x logo" class="site-logo">
+                        <img src="img/logo.svg" alt="Mitko X logo" class="site-logo">
                     </a>
                 </div>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#services" class="nav-link">Solutions</a></li>
+                    
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
@@ -55,16 +77,16 @@
     <section id="home" class="hero-section">
         <div class="container">
             <div class="hero-content centered">
-                <h1 data-aos="fade-up" data-aos-delay="100">Powering Innovation with<br><span class="gradient-text">Enterprise AI</span></h1>
+                <h1 data-aos="fade-up" data-aos-delay="100">Where Robust Engineering <br><span class="gradient-text">Meets Advanced AI</span></h1>
                 <div class="hero-accent-line" data-aos="fade-up" data-aos-delay="200"></div>
-                <p data-aos="fade-up" data-aos-delay="300">Advanced technology solutions that transform operations, drive efficiency, and create breakthrough opportunities</p>
+                <p data-aos="fade-up" data-aos-delay="300">AI-driven solutions to optimize operations, maximize efficiency, and unlock new growth</p>
                 <div class="typewriter-container" data-aos="fade-up" data-aos-delay="350">
                     <span class="typewriter-prefix">Specializing in:</span>
                     <span class="typewriter-text" id="typewriter"></span>
                 </div>
                 <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
-                    <a href="#services" class="btn btn-primary">Explore Solutions</a>
-                    <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+                    <a href="#services" class="btn btn-primary">Discover Our Solutions</a>
+                    <a href="#contact" class="btn btn-secondary">Let’s Talk AI</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -82,7 +104,7 @@
         <div class="container">
             <div class="section-header centered">
                 <h2 data-aos="fade-up"><span class="gradient-text">Our Solutions</span></h2>
-                <p data-aos="fade-up" data-aos-delay="100">Cutting-edge technology tailored for tomorrow's enterprise challenges</p>
+                <p data-aos="fade-up" data-aos-delay="100">Purpose-built solutions for industry leaders</p>
                 <div class="section-accent-line" data-aos="fade-up" data-aos-delay="200"></div>
             </div>
             <div class="services-grid centered">
@@ -92,8 +114,8 @@
                             <path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM10 4h4v2h-4V4zm10 16H4V8h16v12z"/>
                         </svg>
                     </div>
-                    <h3>Enterprise AI Solutions</h3>
-                    <p>Scalable, robust AI systems designed specifically for large enterprise operations and mission-critical environments</p>
+                    <h3>Enterprise AI</h3>
+                    <p>Drive growth and resilience with scalable, enterprise-grade AI</p>
                     <div class="service-hover-indicator"></div>
                 </div>
                 <div class="service-card" data-aos="zoom-in" data-aos-delay="150">
@@ -102,8 +124,8 @@
                             <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
                         </svg>
                     </div>
-                    <h3>Edge AI Implementation</h3>
-                    <p>Powerful AI that runs directly on-device, enabling real-time processing, reduced latency, and operation without cloud dependency</p>
+                    <h3>Edge AI</h3>
+                    <p>Real-time intelligence at the edge for instant decisions</p>
                     <div class="service-hover-indicator"></div>
                 </div>
                 <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
@@ -112,8 +134,8 @@
                             <path d="M15 9H9v6h6V9zm-2 4h-2v-2h2v2zm8-2V9h-2V7c0-1.1-.9-2-2-2h-2V3h-2v2h-2V3H9v2H7c-1.1 0-2 .9-2 2v2H3v2h2v2H3v2h2v2c0 1.1.9 2 2 2h2v2h2v-2h2v2h2v-2h2c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2zm-4 6H7V7h10v10z"/>
                         </svg>
                     </div>
-                    <h3>On-Premises AI Systems</h3>
-                    <p>Secure, self-contained AI infrastructure that keeps sensitive data within your organization's boundaries</p>
+                    <h3>On-Premises AI</h3>
+                    <p>Secure, compliant AI tailored for your infrastructure</p>
                     <div class="service-hover-indicator"></div>
                 </div>
                 <div class="service-card" data-aos="zoom-in" data-aos-delay="250">
@@ -122,8 +144,8 @@
                             <path d="M14.82 14h-5.64c-.1 0-.19.08-.19.18v1.64c0 .1.09.18.19.18h5.64c.1 0 .19-.08.19-.18v-1.64c0-.1-.1-.18-.19-.18zm-6.83-3h8.01c.1 0 .19.08.19.18v1.64c0 .1-.09.18-.19.18h-8.01c-.1 0-.19-.08-.19-.18v-1.64c0-.1.09-.18.19-.18zm5.65-5C5.99 6 0 8.47 0 12c0 1.86 1.28 3.41 3.46 4.54.22 1.44-.04 2.83-.71 3.99-.58.92 0 2.13 1.68 2.13 3.16 0 3.86-1.54 4.45-2.51.26-.4.56-.76.91-1.09 2.31-.01 4.38-.51 5.87-1.29 2.65-1.11 4.24-2.96 4.34-5.31-.01-.15-.07-.4-.25-.33-4.38 1.5-7.75-.36-7.03-3.13.25-.95.69-1.83 1.26-2.58.17-.22.22-.56.06-.79-.43-.61-1.88-.32-2.2-.3-.31.02-1.44.3-3.13 1.19-1.36-1.3-4.41-1.5-5.48-.89-.54.31-.43.84.05 1.01.46.17 1.86.65 2.44 1.19-1.29 1.95-1.4 4.27.21 5.89 1.73 1.74 5.13 1.78 7.44.81.16-.05.31 0 .41.12.07.08.1.2.11.31.25 3.82-2.18 6.18-9.9 5.77-.05-.02-.11-.02-.17-.02-.68 0-1.25.51-1.33 1.17-.08.57.18 1.08.63 1.37 2.76 1.75 9.39 1.41 12.29-1.6.93-.96 1.33-1.75 1.57-2.57 3.03-1.21 5.03-3.02 5.03-5.28-.01-3.12-4.73-5.92-10.58-5.99z"/>
                         </svg>
                     </div>
-                    <h3>Custom AI Models</h3>
-                    <p>Tailored AI solutions that address your specific business challenges with precision-engineered models trained on your data</p>
+                    <h3>Custom AI</h3>
+                    <p>Bespoke AI solutions for your unique business needs</p>
                     <div class="service-hover-indicator"></div>
                 </div>
                 <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
@@ -133,7 +155,7 @@
                         </svg>
                     </div>
                     <h3>AI Agents & Automation</h3>
-                    <p>Autonomous AI agents that learn, adapt, and automate complex workflows to increase efficiency and reduce operational costs</p>
+                    <p>Automate processes and empower teams with intelligent agents</p>
                     <div class="service-hover-indicator"></div>
                 </div>
                 <div class="service-card" data-aos="zoom-in" data-aos-delay="350">
@@ -142,66 +164,34 @@
                             <path d="M16.944 11.811l-3.322-2.07c-.473-.295-1.084-.151-1.38.324-.294.474-.149 1.082.323 1.377l3.324 2.072c.474.293 1.082.151 1.38-.323.294-.474.148-1.085-.325-1.38zm1.93-7.795l-7.792 4.856c-.475.295-.622.902-.327 1.378.193.31.525.478.853.478.181 0 .365-.05.524-.152l7.797-4.855c.473-.296.622-.905.325-1.38-.294-.473-.904-.622-1.379-.325zm-11.67 5.31c0-.552-.447-1-1-1s-1 .448-1 1c0 3.84 2.504 7.254 6.271 9.33-2.236.299-4.271.809-6.271 1.496v.674c0 .551.447 1 1 1 7.386 0 9.874-1.958 10.293-2.344.218-.199.342-.479.342-.76 0-.192-.123-.618-.28-.768-.717-.657-2.153-1.342-3.065-1.769 3.027-1.986 5.01-5.374 5.01-8.859 0-.552-.447-1-1-1s-1 .448-1 1c0 6.065-5.386 9-9.3 9z"/>
                         </svg>
                     </div>
-                    <h3>Industrial IoT Systems</h3>
-                    <p>Industrial control systems and smart devices that transform industrial operations</p>
+                    <h3>Industrial IoT</h3>
+                    <p>Connect, monitor, and optimize your industrial ecosystem</p>
                     <div class="service-hover-indicator"></div>
                 </div>
             </div>
             <div class="services-bottom centered" data-aos="fade-up" data-aos-delay="400">
-                <a href="#contact" class="btn btn-primary">Discuss Your Project</a>
+                
             </div>
         </div>
     </section>
 
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="section-header centered">
-                <h2>About <span class="gradient-text">mitko x</span></h2>
-                <p>Pioneering technology solutions for the enterprise world</p>
-                <div class="section-accent-line"></div>
-            </div>
-            <div class="about-content centered">
-                <div class="about-text">
-                    <p>At mitko x, we specialize in delivering enterprise-grade technology solutions with a focus on artificial intelligence and emerging technologies. Our team of experts brings deep industry knowledge and technical expertise to help large organizations navigate the complexities of digital transformation.</p>
-                    <p>We're committed to developing solutions that not only leverage cutting-edge technology but also deliver measurable business value. Our approach combines technical innovation with strategic thinking to create solutions that are both forward-looking and practical.</p>
-                    <div class="company-values">
-                        <div class="value-item">
-                            <div class="value-icon"><i class="fas fa-award"></i></div>
-                            <h4>Excellence</h4>
-                            <p>Committed to delivering solutions of the highest quality</p>
-                        </div>
-                        <div class="value-item">
-                            <div class="value-icon"><i class="fas fa-sync-alt"></i></div>
-                            <h4>Innovation</h4>
-                            <p>Constantly pushing the boundaries of what's possible</p>
-                        </div>
-                        <div class="value-item">
-                            <div class="value-icon"><i class="fas fa-handshake"></i></div>
-                            <h4>Partnership</h4>
-                            <p>Building lasting relationships with our clients</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2>Get in <span class="gradient-text">Touch</span></h2>
-                <p>Let's discuss how our AI solutions can elevate your business</p>
+                <h2>Contact <span class="gradient-text">Mitko X</span></h2>
+                <p>Ready to lead with AI? Let’s unlock your next opportunity together</p>
             </div>
             <div class="contact-content">
                 <div class="contact-card" data-aos="zoom-in" data-aos-delay="200">
                     <div class="contact-card-inner">
                         <div class="contact-bg-effect"></div>
                         <div class="contact-card-content">
-                            <p>Ready to transform your business with advanced AI solutions? Our team of experts is ready to discuss how we can address your specific needs.</p>
+                            <p>Connect with our experts for a personalized roadmap to AI-driven success</p>
                             <button class="contact-btn pulse-btn" data-name="sales" data-domain="mitkox.com">
                                 <span class="btn-content">
-                                    <i class="fas fa-envelope"></i>
-                                    <span>Contact Us</span>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Email"><path d="M2 4h16v12H2V4zm0 0l8 6 8-6" stroke="#6d64f7" stroke-width="2" fill="none"/></svg>
+                                    <span>Contact Mitko X</span>
                                 </span>
                                 <span class="btn-glow"></span>
                             </button>
@@ -218,16 +208,30 @@
             <div class="footer-content" style="text-align: center;">
                 <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px; margin-bottom: 2rem;">
                     <div style="display: flex; align-items: center;">
-                        <img src="img/logo.svg" alt="mitko x logo" class="site-logo" style="height: 40px; width: auto;">
+                        <img src="img/logo.svg" alt="Mitko X logo" class="site-logo" style="height: 40px; width: auto;">
                     </div>
                     <div style="display: flex; align-items: center;">
                         <p style="font-size: 1.1rem; opacity: 0.9; margin: 0;">Enterprise Technology Solutions</p>
+</div>
+<!-- Social links placeholder for credibility -->
+<div style="margin-top: 1rem;">
+  <a href="https://www.linkedin.com/company/mitko-x/" aria-label="LinkedIn" style="margin: 0 0.5rem; opacity: 0.7;" target="_blank" rel="noopener"><svg width="20" height="20" fill="#6d64f7" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 10.268h-3v-4.604c0-1.098-.021-2.509-1.531-2.509-1.531 0-1.766 1.197-1.766 2.433v4.68h-3v-9h2.885v1.233h.041c.402-.76 1.384-1.561 2.85-1.561 3.049 0 3.611 2.007 3.611 4.617v4.711z"/></svg></a>
+  <!-- Add more social icons as needed -->
+</div>
+
+
                     </div>
                 </div>
             </div>
+            <hr style="border: none; border-top: 1px solid #222; margin: 2rem 0 1rem 0; opacity: 0.2;" />
             <div class="footer-bottom">
-                <p>&copy; <span id="currentYear"></span> mitko x. All rights reserved.</p>
-            </div>
+  <p>&copy; <span id="currentYear"></span> Mitko X. All rights reserved.</p>
+  <div class="footer-links" style="margin-top: 1.2rem;">
+    <a href="/privacy-policy.html" style="margin: 0 0.75rem; color: #9ca3af; font-size: 0.98rem;">Privacy Policy</a>
+    <a href="/terms-of-service.html" style="margin: 0 0.75rem; color: #9ca3af; font-size: 0.98rem;">Terms of Service</a>
+    <a href="/cookies-policy.html" style="margin: 0 0.75rem; color: #9ca3af; font-size: 0.98rem;">Cookies Policy</a>
+  </div>
+</div>
         </div>
     </footer>
 
@@ -240,7 +244,7 @@
     {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "mitko x",
+        "name": "Mitko X",
         "url": "https://mitkox.com",
         "logo": "https://mitkox.com/img/logo.png",
         "contactPoint": {
