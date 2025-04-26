@@ -239,13 +239,13 @@ if ('IntersectionObserver' in window) {
     });
 }
 
+// Hamburger menu logic removed
 // Close mobile menu when clicking a nav link
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         if (navMenu) {
             navMenu.classList.remove('active');
             document.body.classList.remove('no-scroll');
-            
             // Update ARIA attributes
             if (navToggle) {
                 navToggle.setAttribute('aria-expanded', 'false');
