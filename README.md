@@ -1,59 +1,88 @@
 # mitko x Corporate Website
 
-A modern, professional website for mitko x, showcasing enterprise technology and AI solutions.
+A modern, professional static website for mitko x, focused on enterprise technology and AI solutions. This site includes all required legal and compliance policies, a modern responsive design, and is ready for deployment on any static hosting platform.
 
-## Project Structure
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Main Pages](#main-pages)
+- [Directory Structure](#directory-structure)
+- [Features](#features)
+- [Compliance & Policies](#compliance--policies)
+- [Local Development](#local-development)
+- [Deployment](#deployment)
+- [Customization](#customization)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-- `index.html` - Main HTML file with all content sections
-- `css/styles.css` - Styling for the entire website
-- `js/main.js` - JavaScript for website interactivity
+## Project Overview
+This website is designed to:
+- Present mitko x’s enterprise technology and AI offerings
+- Provide clear legal compliance (privacy, cookies, and terms)
+- Offer a modern, mobile-first user experience
+
+## Main Pages
+- `index.html` — Home page with hero, services, and contact
+- `privacy-policy.html` — GDPR-compliant privacy policy
+- `cookies-policy.html` — Cookies usage and compliance
+- `terms-of-service.html` — Terms and conditions for users
+- `404.html` — Custom not found page
+
+## Directory Structure
+- `css/` — All CSS styles (mainly `styles.css`)
+- `js/` — JavaScript for interactivity
+- `img/` — Logos and image assets
+- `workers-site/` — (Optional) Cloudflare Worker files
+- `robots.txt`, `sitemap.xml` — SEO and indexing helpers
 
 ## Features
+- Fully responsive and mobile-friendly
+- Modern UI with gradients and soft cards
+- Sectioned policies for easy reading
+- Interactive navigation and contact form
+- Custom 404 page
 
-- Responsive design for all devices
-- Modern UI with gradient accents
-- Interactive navigation
-- Service showcase section
-- Contact form
-- Mobile-friendly layout
+## Compliance & Policies
+This site includes:
+- Privacy Policy (`privacy-policy.html`)
+- Cookies Policy (`cookies-policy.html`)
+- Terms of Service (`terms-of-service.html`)
 
-## Deployment to Cloudflare Pages
-
-This website is optimized for deployment on Cloudflare Pages. Here's how to deploy it:
-
-1. Create a GitHub repository and push this code to it
-2. Log in to your Cloudflare dashboard
-3. Navigate to Pages > Create a project
-4. Connect your GitHub account and select your repository
-5. Configure your build settings:
-   - Build command: (leave empty as this is a static site)
-   - Build output directory: / (root directory)
-6. Click on "Save and Deploy"
-
-Once deployed, your site will be available at `[project-name].pages.dev`. You can also set up a custom domain in the Cloudflare Pages settings.
+All policies are written for GDPR and EU compliance and are styled for clarity and accessibility.
 
 ## Local Development
+To preview or develop locally, use any static HTTP server:
 
-To test this website locally, you can use any simple HTTP server. For example:
+```sh
+python3 -m http.server 8000 --bind 0.0.0.0
+```
 
-1. Using Python:
-   ```
-   python -m http.server
-   ```
+Then open [http://localhost:8000](http://localhost:8000) in your browser.
 
-2. Using Node.js (with the `http-server` package):
-   ```
-   npx http-server
-   ```
+## Deployment
+### Cloudflare Pages
+1. Push this repo to GitHub
+2. Connect to Cloudflare Pages
+3. Set build output directory to `/` (root)
+4. No build step is needed (static site)
 
-Then open your browser to `http://localhost:8000` (or the port specified by your server).
+### Other Static Hosts
+You can deploy to Netlify, Vercel, GitHub Pages, or any static host with no changes required.
 
 ## Customization
+- Branding colors and fonts are in `css/styles.css`
+- Logos/images are in `img/`
+- Edit HTML files for content changes
 
-Feel free to modify the content, colors, and styling to match your specific branding requirements. The main color scheme is defined in the `:root` section of the CSS file.
+## Contributing
+Pull requests and suggestions are welcome! Please open an issue or PR for discussion.
 
-## Contact Form
+## License
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
-The contact form currently has a simple JavaScript handler that displays an alert on submission. For production, you'll need to connect it to a form handling service or serverless function to process submissions.
+## Contact
+For business inquiries, contact: `web@mitkox.com`
 
-Cloudflare offers Workers and Pages Functions that can be used to handle form submissions without a traditional backend server.
+---
+
+© mitko x / Perla SV Ltd. All rights reserved.
