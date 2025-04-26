@@ -21,189 +21,131 @@
     <link rel="canonical" href="https://mitkox.com">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/aos.css">
-<style>
-/* Sticky navbar for Home, Solutions, Contact */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: #0f172a;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
-.navbar {
-  background: transparent;
-}
-.nav-menu {
-  background: transparent;
-}
-@media (max-width: 900px) {
-  .header {
-    position: sticky;
-    top: 0;
-  }
-}
-</style>
-    <!-- Removed Font Awesome to eliminate icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
 </head>
 <body class="dark-theme" data-aos-easing="ease-out-cubic" data-aos-duration="800" data-aos-delay="0">
-    <!-- Skip to main content for accessibility -->
     <a href="#main" class="skip-link">Skip to main content</a>
-    <div id="particles-js"></div>
     <header class="header" aria-label="Main Navigation">
         <div class="container">
             <nav class="navbar" aria-label="Primary">
                 <div class="logo">
                     <a href="#home" aria-label="Go to homepage">
-  <img src="img/logo.svg" alt="Mitko X corporate logo" class="site-logo">
-</a>
+                        <img src="img/logo.svg" alt="Mitko X corporate logo" class="site-logo">
+                    </a>
                 </div>
-                
-<ul class="nav-menu" id="navMenu" role="menubar">
+                <ul class="nav-menu" id="navMenu" role="menubar">
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#services" class="nav-link">Solutions</a></li>
-                    
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-
     <main id="main">
-    <section id="home" class="hero-section">
-        <div class="container">
-            <div class="hero-content centered">
-                <h1 data-aos="fade-up" data-aos-delay="100">Where Robust Engineering <br><span class="gradient-text">Meets Advanced AI</span></h1>
-                <div class="hero-accent-line" data-aos="fade-up" data-aos-delay="200"></div>
-                <p data-aos="fade-up" data-aos-delay="300">AI-driven solutions to optimize operations, maximize efficiency, and unlock new growth</p>
-                <div class="typewriter-container" data-aos="fade-up" data-aos-delay="350">
-                    <span class="typewriter-prefix">Specializing in:</span>
-                    <span class="typewriter-text" id="typewriter"></span>
-                </div>
-                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
-                    <a href="#services" class="btn btn-primary">Discover Our Solutions</a>
-                    <a href="#contact" class="btn btn-secondary">Let’s Talk</a>
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="hero-content centered">
+                    <h1 data-aos="fade-up" data-aos-delay="100">Where Robust Engineering <br>Meets Advanced AI</h1>
+                    <p data-aos="fade-up" data-aos-delay="300">Leveraging AI-driven solutions to optimize operations, maximize efficiency, and unlock new growth.</p>
+                    <div class="typewriter-container" data-aos="fade-up" data-aos-delay="350">
+                        <span class="typewriter-prefix">Specializing in:</span>
+                        <span class="typewriter-text" id="typewriter"></span>
+                    </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="abstract-shape pulse-animation"></div>
-                <div class="abstract-shape second-shape floating-animation"></div>
-                <div class="abstract-grid"></div>
-                <div class="tech-orb orb-1" data-aos="zoom-in" data-aos-delay="600"></div>
-                <div class="tech-orb orb-2" data-aos="zoom-in" data-aos-delay="800"></div>
-                <div class="tech-orb orb-3" data-aos="zoom-in" data-aos-delay="1000"></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="services-section">
-        <div class="container">
-            <div class="section-header centered">
-                <h2 data-aos="fade-up"><span class="gradient-text">Our Solutions</span></h2>
-                <p data-aos="fade-up" data-aos-delay="100">Purpose-built solutions for industry leaders</p>
-                <div class="section-accent-line" data-aos="fade-up" data-aos-delay="200"></div>
-            </div>
-            <div class="services-grid centered">
-                <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="service-icon service-icon-gradient-1">
-                        <svg viewBox="0 0 24 24" width="24" height="24" class="service-svg-icon">
-                            <path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM10 4h4v2h-4V4zm10 16H4V8h16v12z"/>
-                        </svg>
-                    </div>
-                    <h3>Enterprise AI</h3>
-                    <p>Drive growth and resilience with scalable, enterprise-grade AI</p>
-                    <div class="service-hover-indicator"></div>
+        </section>
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-header centered">
+                    <h2 data-aos="fade-up">Our Solutions</h2>
+                    <p data-aos="fade-up" data-aos-delay="100">Purpose-built technology solutions for industry leaders</p>
                 </div>
-                <div class="service-card" data-aos="zoom-in" data-aos-delay="150">
-                    <div class="service-icon service-icon-gradient-2">
-                        <svg viewBox="0 0 24 24" width="24" height="24" class="service-svg-icon">
-                            <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
-                        </svg>
+                <div class="services-grid centered">
+                    <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" class="service-svg-icon">
+                                <path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM10 4h4v2h-4V4zm10 16H4V8h16v12z"/>
+                            </svg>
+                        </div>
+                        <h3>Enterprise AI</h3>
+                        <p>Implement scalable, enterprise-grade AI to drive growth and resilience.</p>
                     </div>
-                    <h3>Edge AI</h3>
-                    <p>Real-time intelligence at the edge for instant decisions</p>
-                    <div class="service-hover-indicator"></div>
-                </div>
-                <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="service-icon service-icon-gradient-3">
-                        <svg viewBox="0 0 24 24" width="24" height="24" class="service-svg-icon">
-                            <path d="M15 9H9v6h6V9zm-2 4h-2v-2h2v2zm8-2V9h-2V7c0-1.1-.9-2-2-2h-2V3h-2v2h-2V3H9v2H7c-1.1 0-2 .9-2 2v2H3v2h2v2H3v2h2v2c0 1.1.9 2 2 2h2v2h2v-2h2v2h2v-2h2c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2zm-4 6H7V7h10v10z"/>
-                        </svg>
+                    <div class="service-card" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" class="service-svg-icon">
+                                <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                            </svg>
+                        </div>
+                        <h3>Edge AI</h3>
+                        <p>Deploy real-time intelligence at the edge for optimized operations.</p>
                     </div>
-                    <h3>On-Premises AI</h3>
-                    <p>Secure, compliant AI tailored for your infrastructure</p>
-                    <div class="service-hover-indicator"></div>
-                </div>
-                <div class="service-card" data-aos="zoom-in" data-aos-delay="250">
-                    <div class="service-icon service-icon-gradient-4">
-                        <svg viewBox="0 0 24 24" width="24" height="24" class="service-svg-icon">
-                            <path d="M14.82 14h-5.64c-.1 0-.19.08-.19.18v1.64c0 .1.09.18.19.18h5.64c.1 0 .19-.08.19-.18v-1.64c0-.1-.1-.18-.19-.18zm-6.83-3h8.01c.1 0 .19.08.19.18v1.64c0 .1-.09.18-.19.18h-8.01c-.1 0-.19-.08-.19-.18v-1.64c0-.1.09-.18.19-.18zm5.65-5C5.99 6 0 8.47 0 12c0 1.86 1.28 3.41 3.46 4.54.22 1.44-.04 2.83-.71 3.99-.58.92 0 2.13 1.68 2.13 3.16 0 3.86-1.54 4.45-2.51.26-.4.56-.76.91-1.09 2.31-.01 4.38-.51 5.87-1.29 2.65-1.11 4.24-2.96 4.34-5.31-.01-.15-.07-.4-.25-.33-4.38 1.5-7.75-.36-7.03-3.13.25-.95.69-1.83 1.26-2.58.17-.22.22-.56.06-.79-.43-.61-1.88-.32-2.2-.3-.31.02-1.44.3-3.13 1.19-1.36-1.3-4.41-1.5-5.48-.89-.54.31-.43.84.05 1.01.46.17 1.86.65 2.44 1.19-1.29 1.95-1.4 4.27.21 5.89 1.73 1.74 5.13 1.78 7.44.81.16-.05.31 0 .41.12.07.08.1.2.11.31.25 3.82-2.18 6.18-9.9 5.77-.05-.02-.11-.02-.17-.02-.68 0-1.25.51-1.33 1.17-.08.57.18 1.08.63 1.37 2.76 1.75 9.39 1.41 12.29-1.6.93-.96 1.33-1.75 1.57-2.57 3.03-1.21 5.03-3.02 5.03-5.28-.01-3.12-4.73-5.92-10.58-5.99z"/>
-                        </svg>
+                    <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" class="service-svg-icon">
+                                <path d="M15 9H9v6h6V9zm-2 4h-2v-2h2v2zm8-2V9h-2V7c0-1.1-.9-2-2-2h-2V3h-2v2h-2V3H9v2H7c-1.1 0-2 .9-2 2v2H3v2h2v2H3v2h2v2c0 1.1.9 2 2 2h2v2h2v-2h2v2h2v-2h2c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2zm-4 6H7V7h10v10z"/>
+                            </svg>
+                        </div>
+                        <h3>On-Premises AI</h3>
+                        <p>Secure, compliant AI solutions tailored for your existing infrastructure.</p>
                     </div>
-                    <h3>Custom AI</h3>
-                    <p>Bespoke AI solutions for your unique business needs</p>
-                    <div class="service-hover-indicator"></div>
-                </div>
-                <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="service-icon service-icon-gradient-5">
-                        <svg viewBox="0 0 24 24" width="24" height="24" class="service-svg-icon">
-                            <path d="M15 4c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zM3 12c0-2.61 1.67-4.83 4-5.65V4.26C3.55 5.15 1 8.27 1 12s2.55 6.85 6 7.74v-2.09c-2.33-.82-4-3.04-4-5.65z"/>
-                        </svg>
+                    <div class="service-card" data-aos="zoom-in" data-aos-delay="250">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" class="service-svg-icon">
+                                <path d="M14.82 14h-5.64c-.1 0-.19.08-.19.18v1.64c0 .1.09.18.19.18h5.64c.1 0 .19-.08.19-.18v-1.64c0-.1-.1-.18-.19-.18zm-6.83-3h8.01c.1 0 .19.08.19.18v1.64c0 .1-.09.18-.19.18h-8.01c-.1 0-.19-.08-.19-.18v-1.64c0-.1.09-.18.19-.18zm5.65-5C5.99 6 0 8.47 0 12c0 1.86 1.28 3.41 3.46 4.54.22 1.44-.04 2.83-.71 3.99-.58.92 0 2.13 1.68 2.13 3.16 0 3.86-1.54 4.45-2.51.26-.4.56-.76.91-1.09 2.31-.01 4.38-.51 5.87-1.29 2.65-1.11 4.24-2.96 4.34-5.31-.01-.15-.07-.4-.25-.33-4.38 1.5-7.75-.36-7.03-3.13.25-.95.69-1.83 1.26-2.58.17-.22.22-.56.06-.79-.43-.61-1.88-.32-2.2-.3-.31.02-1.44.3-3.13 1.19-1.36-1.3-4.41-1.5-5.48-.89-.54.31-.43.84.05 1.01.46.17 1.86.65 2.44 1.19-1.29 1.95-1.4 4.27.21 5.89 1.73 1.74 5.13 1.78 7.44.81.16-.05.31 0 .41.12.07.08.1.2.11.31.25 3.82-2.18 6.18-9.9 5.77-.05-.02-.11-.02-.17-.02-.68 0-1.25.51-1.33 1.17-.08.57.18 1.08.63 1.37 2.76 1.75 9.39 1.41 12.29-1.6.93-.96 1.33-1.75 1.57-2.57 3.03-1.21 5.03-3.02 5.03-5.28-.01-3.12-4.73-5.92-10.58-5.99z"/>
+                            </svg>
+                        </div>
+                        <h3>Custom AI</h3>
+                        <p>Develop bespoke AI models engineered for your unique challenges.</p>
                     </div>
-                    <h3>AI Agents & Automation</h3>
-                    <p>Automate processes and empower teams with intelligent agents</p>
-                    <div class="service-hover-indicator"></div>
-                </div>
-                <div class="service-card" data-aos="zoom-in" data-aos-delay="350">
-                    <div class="service-icon service-icon-gradient-6">
-                        <svg viewBox="0 0 24 24" width="24" height="24" class="service-svg-icon">
-                            <path d="M16.944 11.811l-3.322-2.07c-.473-.295-1.084-.151-1.38.324-.294.474-.149 1.082.323 1.377l3.324 2.072c.474.293 1.082.151 1.38-.323.294-.474.148-1.085-.325-1.38zm1.93-7.795l-7.792 4.856c-.475.295-.622.902-.327 1.378.193.31.525.478.853.478.181 0 .365-.05.524-.152l7.797-4.855c.473-.296.622-.905.325-1.38-.294-.473-.904-.622-1.379-.325zm-11.67 5.31c0-.552-.447-1-1-1s-1 .448-1 1c0 3.84 2.504 7.254 6.271 9.33-2.236.299-4.271.809-6.271 1.496v.674c0 .551.447 1 1 1 7.386 0 9.874-1.958 10.293-2.344.218-.199.342-.479.342-.76 0-.192-.123-.618-.28-.768-.717-.657-2.153-1.342-3.065-1.769 3.027-1.986 5.01-5.374 5.01-8.859 0-.552-.447-1-1-1s-1 .448-1 1c0 6.065-5.386 9-9.3 9z"/>
-                        </svg>
+                    <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" class="service-svg-icon">
+                                <path d="M15 4c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zM3 12c0-2.61 1.67-4.83 4-5.65V4.26C3.55 5.15 1 8.27 1 12s2.55 6.85 6 7.74v-2.09c-2.33-.82-4-3.04-4-5.65z"/>
+                            </svg>
+                        </div>
+                        <h3>AI Agents & Automation</h3>
+                        <p>Streamline processes and empower teams with intelligent automation.</p>
                     </div>
-                    <h3>Industrial IoT</h3>
-                    <p>Connect, monitor, and optimize your industrial ecosystem</p>
-                    <div class="service-hover-indicator"></div>
+                    <div class="service-card" data-aos="zoom-in" data-aos-delay="350">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" class="service-svg-icon">
+                                <path d="M16.944 11.811l-3.322-2.07c-.473-.295-1.084-.151-1.38.324-.294.474-.149 1.082.323 1.377l3.324 2.072c.474.293 1.082.151 1.38-.323.294-.474.148-1.085-.325-1.38zm1.93-7.795l-7.792 4.856c-.475.295-.622.902-.327 1.378.193.31.525.478.853.478.181 0 .365-.05.524-.152l7.797-4.855c.473-.296.622-.905.325-1.38-.294-.473-.904-.622-1.379-.325zm-11.67 5.31c0-.552-.447-1-1-1s-1 .448-1 1c0 3.84 2.504 7.254 6.271 9.33-2.236.299-4.271.809-6.271 1.496v.674c0 .551.447 1 1 1 7.386 0 9.874-1.958 10.293-2.344.218-.199.342-.479.342-.76 0-.192-.123-.618-.28-.768-.717-.657-2.153-1.342-3.065-1.769 3.027-1.986 5.01-5.374 5.01-8.859 0-.552-.447-1-1-1s-1 .448-1 1c0 6.065-5.386 9-9.3 9z"/>
+                            </svg>
+                        </div>
+                        <h3>Industrial IoT</h3>
+                        <p>Connect, monitor, and optimize industrial assets and ecosystems.</p>
+                    </div>
                 </div>
             </div>
-            <div class="services-bottom centered" data-aos="fade-up" data-aos-delay="400">
-                
-            </div>
-        </div>
-    </section>
-
-
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Contact <span class="gradient-text">Us</span></h2>
-                <p>Ready to lead with AI? Let’s unlock your next opportunity together</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="contact-card-inner">
-                        <div class="contact-bg-effect"></div>
-                        <div class="contact-card-content">
-                            <p>Connect with our experts for a personalized roadmap to AI-driven success</p>
-                            <button class="contact-btn pulse-btn" data-name="sales" data-domain="mitkox.com">
-                                <span class="btn-content">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Email"><path d="M2 4h16v12H2V4zm0 0l8 6 8-6" stroke="#6d64f7" stroke-width="2" fill="none"/></svg>
-                                    <span>Contact</span>
-                                </span>
-                                <span class="btn-glow"></span>
-                            </button>
+        </section>
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2>Contact Us</h2>
+                    <p>Ready to lead with AI? Let’s unlock your next opportunity together</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="contact-card-inner">
+                            <div class="contact-card-content">
+                                <p>Connect with our experts for a personalized roadmap to AI-driven success.</p>
+                                <button class="contact-btn" data-name="sales" data-domain="mitkox.com">
+                                    <span class="btn-content">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Email"><path d="M2 4h16v12H2V4zm0 0l8 6 8-6" stroke="#6d64f7" stroke-width="2" fill="none"/></svg>
+                                        <span>Get In Touch</span>
+                                    </span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</main>
-
+        </section>
+    </main>
     <footer class="footer" aria-label="Site Footer">
         <div class="container">
             <div class="footer-content" style="text-align: center;">
@@ -213,37 +155,28 @@
                     </div>
                     <div style="display: flex; align-items: center;">
                         <p style="font-size: 1.1rem; opacity: 0.9; margin: 0;">Enterprise Technology Solutions</p>
-</div>
-<!-- Social links placeholder for credibility -->
-<div style="margin-top: 1rem;">
-  <a href="https://www.linkedin.com/company/mitko-x/" aria-label="LinkedIn" style="margin: 0 0.5rem; opacity: 0.7;" target="_blank" rel="noopener"><svg width="20" height="20" fill="#6d64f7" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 10.268h-3v-4.604c0-1.098-.021-2.509-1.531-2.509-1.531 0-1.766 1.197-1.766 2.433v4.68h-3v-9h2.885v1.233h.041c.402-.76 1.384-1.561 2.85-1.561 3.049 0 3.611 2.007 3.611 4.617v4.711z"/></svg></a>
-  <!-- Add more social icons as needed -->
-</div>
-
-
                     </div>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <a href="https://www.linkedin.com/company/mitko-x/" aria-label="LinkedIn" style="margin: 0 0.5rem; opacity: 0.7;" target="_blank" rel="noopener"><svg width="20" height="20" fill="#6d64f7" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 10.268h-3v-4.604c0-1.098-.021-2.509-1.531-2.509-1.531 0-1.766 1.197-1.766 2.433v4.68h-3v-9h2.885v1.233h.041c.402-.76 1.384-1.561 2.85-1.561 3.049 0 3.611 2.007 3.611 4.617v4.711z"/></svg></a>
                 </div>
             </div>
             <hr style="border: none; border-top: 1px solid #222; margin: 2rem 0 1rem 0; opacity: 0.2;" />
             <div class="footer-bottom">
-  <div class="footer-links" style="margin-top: 1.2rem;">
-    <a href="/privacy-policy.html" style="margin: 0 0.5rem; color: #9ca3af; font-size: 0.98rem;">Privacy Policy</a>
-<span style="color: #666; font-size: 0.98rem;">|</span>
-<a href="/terms-of-service.html" style="margin: 0 0.5rem; color: #9ca3af; font-size: 0.98rem;">Terms of Service</a>
-<span style="color: #666; font-size: 0.98rem;">|</span>
-<a href="/cookies-policy.html" style="margin: 0 0.5rem; color: #9ca3af; font-size: 0.98rem;">Cookies Policy</a>
-<span style="color: #666; font-size: 0.98rem;">|</span>
-<span style="margin: 0 0.5rem; color: #9ca3af; font-size: 0.98rem;">&copy; <span id="currentYear"></span> Mitko X. All rights reserved.</span>
-  </div>
-</div>
+                <div class="footer-links" style="margin-top: 1.2rem;">
+                    <a href="/privacy-policy.html" style="margin: 0 0.5rem; color: #9ca3af; font-size: 0.98rem;">Privacy Policy</a>
+                    <span style="color: #666; font-size: 0.98rem;">|</span>
+                    <a href="/terms-of-service.html" style="margin: 0 0.5rem; color: #9ca3af; font-size: 0.98rem;">Terms of Service</a>
+                    <span style="color: #666; font-size: 0.98rem;">|</span>
+                    <a href="/cookies-policy.html" style="margin: 0 0.5rem; color: #9ca3af; font-size: 0.98rem;">Cookies Policy</a>
+                    <span style="color: #666; font-size: 0.98rem;">|</span>
+                    <span style="margin: 0 0.5rem; color: #9ca3af; font-size: 0.98rem;">&copy; <span id="currentYear"></span> Mitko X. All rights reserved.</span>
+                </div>
+            </div>
         </div>
     </footer>
-
-    <script src="js/particles.min.js"></script>
     <script src="js/aos.min.js"></script>
     <script src="js/main.js"></script>
-    
-    <!-- Structured data for SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -260,8 +193,6 @@
         "sameAs": []
     }
     </script>
-    
-    <!-- Service worker registration for better performance -->
     <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
