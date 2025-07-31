@@ -6,155 +6,221 @@
     <title>Terms of Service | Mitko X</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background: #f8f9fb;
-            font-family: 'Inter', Arial, sans-serif;
-            color: #23263b;
+            background: var(--background-color);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            color: var(--text-color);
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
         .policy-main {
             max-width: 800px;
-            margin: 3rem auto 2rem auto;
-            background: #fff;
-            border-radius: 18px;
-            box-shadow: 0 6px 32px 0 rgba(40,64,112,0.08);
-            padding: 2.5rem 2.5rem 2rem 2.5rem;
+            margin: 2rem auto;
+            background: var(--card-background);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 2rem;
             position: relative;
+            border: 1px solid var(--border-color);
         }
         .policy-header {
             display: flex;
             align-items: center;
-            gap: 1.2rem;
-            border-bottom: 2px solid #eceff5;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 1.5rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
         .policy-header-icon {
-            background: linear-gradient(135deg, #6d64f7 60%, #4fd1c5 100%);
-            border-radius: 12px;
-            width: 54px;
-            height: 54px;
+            background: var(--primary-gradient);
+            border-radius: var(--radius-md);
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
         .policy-header-icon svg {
-            width: 32px;
-            height: 32px;
+            width: 24px;
+            height: 24px;
             fill: #fff;
         }
         .policy-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #2d317a;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--text-color);
             margin: 0;
         }
+        .policy-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .back-link:hover {
+            background: var(--primary-light);
+            transform: translateY(-1px);
+        }
         .policy-section {
-            margin-bottom: 2.2rem;
-            padding-bottom: 1.2rem;
-            border-bottom: 1px solid #eceff5;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.1);
         }
         .policy-section:last-child {
             border-bottom: none;
+            margin-bottom: 0;
         }
         .policy-section h2 {
-            font-size: 1.32rem;
-            color: #6d64f7;
-            margin-bottom: 0.7rem;
+            font-size: 1.125rem;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
             margin-top: 0;
+            font-weight: 600;
         }
         .policy-section p {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            margin: 0 0 0.6rem 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0 0 0.75rem 0;
+            color: var(--text-light);
+        }
+        .policy-section a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .policy-section a:hover {
+            color: var(--primary-light);
+            text-decoration: underline;
         }
         .policy-meta {
-            font-size: 0.98rem;
-            color: #6d64f7;
-            margin-top: 2.2rem;
-            text-align: right;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 2rem;
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
         }
-        @media (max-width: 600px) {
-            .policy-main { padding: 1.2rem 0.5rem; }
-            .policy-header { flex-direction: column; align-items: flex-start; gap: 0.7rem; }
-            .policy-title { font-size: 1.3rem; }
+        @media (max-width: 768px) {
+            .policy-main { 
+                margin: 1rem;
+                padding: 1.5rem; 
+            }
+            .policy-header { 
+                flex-direction: column; 
+                align-items: flex-start; 
+                gap: 0.75rem; 
+            }
+            .policy-title { 
+                font-size: 1.5rem; 
+            }
         }
     </style>
 </head>
 <body>
     <main class="policy-main">
-    <div class="policy-header">
-        <div class="policy-header-icon">
-            <svg viewBox="0 0 32 32"><path d="M16 3c-7.18 0-13 5.82-13 13s5.82 13 13 13 13-5.82 13-13S23.18 3 16 3zm0 24c-6.08 0-11-4.92-11-11S9.92 5 16 5s11 4.92 11 11-4.92 11-11 11zm-1-7h2v2h-2zm2.07-7.75c-.9.23-1.57.99-1.57 1.92h2c0-.28.22-.5.5-.5s.5.22.5.5c0 .28-.22.5-.5.5-.83 0-1.5.67-1.5 1.5V17h2v-1.25c.73-.19 1.25-.83 1.25-1.58 0-1.1-1.01-1.97-2.25-1.92z"/></svg>
+        <div class="policy-header">
+            <div class="policy-header-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 14H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                </svg>
+            </div>
+            <div>
+                <h1 class="policy-title">Terms of Service</h1>
+                <div class="policy-subtitle">Effective as of April 2025</div>
+            </div>
         </div>
-        <div>
-            <h1 class="policy-title">Terms of Service</h1>
-            <div style="font-size:1.05rem;color:#7886a0;">Effective as of April 2025</div>
-        </div>
-    </div>
-    <a href="/index.html" style="display:inline-block;margin-bottom:2.2rem;padding:0.5rem 1.2rem;background:#6d64f7;color:#fff;border-radius:6px;text-decoration:none;font-size:1rem;">&larr; Back</a>
+        
+        <a href="/" class="back-link">
+            <span>←</span> Back to Home
+        </a>
 
-    <div class="policy-section">
-        <p>By using this website, you agree to these Terms of Service. Please read them carefully before using our services.</p>
-    </div>
-    <div class="policy-section">
-        <h2>Use</h2>
-        <p>Use this site for lawful purposes only. Do not disrupt, misuse, or attempt to compromise the integrity or security of our services.</p>
-    </div>
-    <div class="policy-section">
-        <h2>Your Responsibilities</h2>
-        <p>You are responsible for providing accurate information and for keeping your account details secure. Any activity under your account is your responsibility.</p>
-    </div>
-    <div class="policy-section">
-        <h2>Payment, Refunds, and Cancellations</h2>
-        <p>If you purchase products or services from us, payment terms, refund, and cancellation policies will be provided in the relevant agreement or invoice. Please contact us for details.</p>
-    </div>
-    <div class="policy-section">
-        <h2>Updates to Terms</h2>
-        <p>We may update these Terms from time to time. Changes will be posted on this page. Your continued use of the website constitutes acceptance of the new Terms.</p>
-    </div>
-    <div class="policy-section">
-        <h2>International Clients</h2>
-        <p>Our services are available internationally. By using our website, you agree to comply with all applicable laws in your jurisdiction.</p>
-    </div>
-    <div class="policy-section">
-        <h2>Dispute Resolution</h2>
-        <p>Any disputes arising from these Terms will first be attempted to be resolved amicably. If not resolved, disputes will be subject to the exclusive jurisdiction of the courts of Sofia, Bulgaria.</p>
-    </div>
-<p>Any disputes arising from these Terms will first be attempted to be resolved amicably. If not resolved, disputes will be subject to the exclusive jurisdiction of the courts of Sofia, Bulgaria.</p>
-    <div class="policy-section">
-        <h2>Intellectual Property</h2>
-        <p>All content, trademarks, and intellectual property on this website are owned by Perla SV Ltd or its licensors. You may not reproduce or distribute any content without written permission.</p>
-    </div>
-    <div class="policy-section">
-        <h2>Liability</h2>
-        <p>We provide this site as is and are not liable for any damages from its use.</p>
-    </div>
-    <div class="policy-section">
-        <h2>Law</h2>
-        <p>These terms are governed by Bulgarian law. Disputes are resolved in Sofia, Bulgaria.</p>
-    </div>
-    <div class="policy-section">
-        <h2>Contact</h2>
-        <p>Email: <a href="#" id="email-link">[email protected]</a></p>
-        <script>
-          document.addEventListener('DOMContentLoaded', function() {
+        <div class="policy-section">
+            <p>By using this website, you agree to these Terms of Service. Please read them carefully before using our services.</p>
+        </div>
+        
+        <div class="policy-section">
+            <h2>Use</h2>
+            <p>Use this site for lawful purposes only. Do not disrupt, misuse, or attempt to compromise the integrity or security of our services.</p>
+        </div>
+        
+        <div class="policy-section">
+            <h2>Your Responsibilities</h2>
+            <p>You are responsible for providing accurate information and for keeping your account details secure. Any activity under your account is your responsibility.</p>
+        </div>
+        
+        <div class="policy-section">
+            <h2>Payment, Refunds, and Cancellations</h2>
+            <p>If you purchase products or services from us, payment terms, refund, and cancellation policies will be provided in the relevant agreement or invoice. Please contact us for details.</p>
+        </div>
+        
+        <div class="policy-section">
+            <h2>Updates to Terms</h2>
+            <p>We may update these Terms from time to time. Changes will be posted on this page. Your continued use of the website constitutes acceptance of the new Terms.</p>
+        </div>
+        
+        <div class="policy-section">
+            <h2>International Clients</h2>
+            <p>Our services are available internationally. By using our website, you agree to comply with all applicable laws in your jurisdiction.</p>
+        </div>
+        
+        <div class="policy-section">
+            <h2>Dispute Resolution</h2>
+            <p>Any disputes arising from these Terms will first be attempted to be resolved amicably. If not resolved, disputes will be subject to the exclusive jurisdiction of the courts of Sofia, Bulgaria.</p>
+        </div>
+        
+        <div class="policy-section">
+            <h2>Intellectual Property</h2>
+            <p>All content, trademarks, and intellectual property on this website are owned by Perla SV Ltd or its licensors. You may not reproduce or distribute any content without written permission.</p>
+        </div>
+        
+        <div class="policy-section">
+            <h2>Liability</h2>
+            <p>We provide this site as is and are not liable for any damages from its use.</p>
+        </div>
+        
+        <div class="policy-section">
+            <h2>Governing Law</h2>
+            <p>These terms are governed by Bulgarian law. Disputes are resolved in Sofia, Bulgaria.</p>
+        </div>
+        
+        <div class="policy-section">
+            <h2>Contact</h2>
+            <p>Email: <a href="#" id="email-link">[email protected]</a></p>
+        </div>
+        
+        <div class="policy-section">
+            <h2>Company Information</h2>
+            <p>Perla SV Ltd<br>54 "Tsvetna Gradina" Street<br>1421 Sofia, Bulgaria<br>VAT BG202025755</p>
+        </div>
+
+        <div class="policy-meta">Last updated: April 2025</div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
             var user = 'web';
             var domain = 'mitkox.com';
             var email = user + '@' + domain;
             var link = document.getElementById('email-link');
             link.href = 'mailto:' + email;
             link.textContent = email;
-          });
-        </script>
-    </div>
-    <div class="policy-section">
-        <h2>Company</h2>
-        <p>Perla SV Ltd<br>54 “Tsvetna Gradina" Street,<br>1421 Sofia, Bulgaria<br>VAT BG202025755</p>
-    </div>
-    <div class="policy-meta">Last updated: April 2025</div>
-</main>
+        });
+    </script>
 </body>
 </html>

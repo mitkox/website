@@ -6,94 +6,129 @@
     <title>Privacy Policy | Mitko X</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background: #f8f9fb;
-            font-family: 'Inter', Arial, sans-serif;
-            color: #23263b;
+            background: var(--background-color);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            color: var(--text-color);
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
         .policy-main {
             max-width: 800px;
-            margin: 3rem auto 2rem auto;
-            background: #fff;
-            border-radius: 18px;
-            box-shadow: 0 6px 32px 0 rgba(40,64,112,0.08);
-            padding: 2.5rem 2.5rem 2rem 2.5rem;
+            margin: 2rem auto;
+            background: var(--card-background);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 2rem;
             position: relative;
+            border: 1px solid var(--border-color);
         }
         .policy-header {
             display: flex;
             align-items: center;
-            gap: 1.2rem;
-            border-bottom: 2px solid #eceff5;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 1.5rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
         .policy-header-icon {
-            background: linear-gradient(135deg, #6d64f7 60%, #4fd1c5 100%);
-            border-radius: 12px;
-            width: 54px;
-            height: 54px;
+            background: var(--primary-gradient);
+            border-radius: var(--radius-md);
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
         .policy-header-icon svg {
-            width: 32px;
-            height: 32px;
+            width: 24px;
+            height: 24px;
             fill: #fff;
         }
         .policy-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #2d317a;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--text-color);
             margin: 0;
         }
+        .policy-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .back-link:hover {
+            background: var(--primary-light);
+            transform: translateY(-1px);
+        }
         .policy-section {
-            margin-bottom: 2.2rem;
-            padding-bottom: 1.2rem;
-            border-bottom: 1px solid #eceff5;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.1);
         }
         .policy-section:last-child {
             border-bottom: none;
+            margin-bottom: 0;
         }
         .policy-section h2 {
-            font-size: 1.32rem;
-            color: #6d64f7;
-            margin-bottom: 0.7rem;
+            font-size: 1.125rem;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
             margin-top: 0;
+            font-weight: 600;
         }
         .policy-section p {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            margin: 0 0 0.6rem 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0 0 0.75rem 0;
+            color: var(--text-light);
+        }
+        .policy-section a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .policy-section a:hover {
+            color: var(--primary-light);
+            text-decoration: underline;
         }
         .policy-meta {
-            font-size: 0.98rem;
-            color: #6d64f7;
-            margin-top: 2.2rem;
-            text-align: right;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 2rem;
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
         }
-        @media (max-width: 600px) {
-            .policy-main { padding: 1.2rem 0.5rem; }
-            .policy-header { flex-direction: column; align-items: flex-start; gap: 0.7rem; }
-            .policy-title { font-size: 1.3rem; }
-        }
-        .card {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .card h2 {
-            margin-top: 0;
-        }
-        .card p {
-            margin-bottom: 20px;
+        @media (max-width: 768px) {
+            .policy-main { 
+                margin: 1rem;
+                padding: 1.5rem; 
+            }
+            .policy-header { 
+                flex-direction: column; 
+                align-items: flex-start; 
+                gap: 0.75rem; 
+            }
+            .policy-title { 
+                font-size: 1.5rem; 
+            }
         }
     </style>
 </head>
@@ -101,78 +136,82 @@
     <main class="policy-main">
         <div class="policy-header">
             <div class="policy-header-icon">
-                <svg viewBox="0 0 32 32"><path d="M16 3c-7.18 0-13 5.82-13 13s5.82 13 13 13 13-5.82 13-13S23.18 3 16 3zm0 24c-6.08 0-11-4.92-11-11S9.92 5 16 5s11 4.92 11 11-4.92 11-11 11zm-1-7h2v2h-2zm2.07-7.75c-.9.23-1.57.99-1.57 1.92h2c0-.28.22-.5.5-.5s.5.22.5.5c0 .28-.22.5-.5.5-.83 0-1.5.67-1.5 1.5V17h2v-1.25c.73-.19 1.25-.83 1.25-1.58 0-1.1-1.01-1.97-2.25-1.92z"/></svg>
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
             </div>
             <div>
                 <h1 class="policy-title">Privacy Policy</h1>
-                <div style="font-size:1.05rem;color:#7886a0;">Effective as of April 2025</div>
+                <div class="policy-subtitle">Effective as of April 2025</div>
             </div>
         </div>
-        <a href="/index.html" style="display:inline-block;margin-bottom:2.2rem;padding:0.5rem 1.2rem;background:#6d64f7;color:#fff;border-radius:6px;text-decoration:none;font-size:1rem;">&larr; Back</a>
+        
+        <a href="/" class="back-link">
+            <span>←</span> Back to Home
+        </a>
+
         <div class="policy-section">
             <h2>What We Collect</h2>
             <p>We collect your name, email, and any information you send us through our forms. We also collect technical data like your IP address and browser type.</p>
         </div>
-        <div class="policy-section">
-            <h2>International Data Transfers</h2>
-            <p>Your personal data may be transferred to and processed in countries outside Bulgaria and the European Economic Area (EEA). In such cases, we ensure appropriate safeguards as required by GDPR.</p>
-        </div>
-        <div class="policy-section">
-            <h2>Data Retention</h2>
-            <p>We retain your personal data only as long as necessary for the purposes stated in this policy or as required by law.</p>
-        </div>
-        <div class="policy-section">
-            <h2>Third-Party Services</h2>
-            <p>We may use trusted third-party service providers (such as analytics or hosting) who process data on our behalf. A list of these providers is available upon request.</p>
-        </div>
-        <div class="policy-section">
-            <h2>Automated Decision-Making</h2>
-            <p>We do not use your data for automated decision-making or profiling that produces legal effects concerning you.</p>
-        </div>
+        
         <div class="policy-section">
             <h2>How We Use It</h2>
             <p>We use your data to provide our services, respond to your requests, and improve our website. We do not sell your data.</p>
         </div>
+        
         <div class="policy-section">
             <h2>Data Sharing & Security</h2>
             <p>We do not sell your data. We may share it with trusted third parties as required for service delivery or legal compliance. We take appropriate security measures to protect your data.</p>
         </div>
+        
+        <div class="policy-section">
+            <h2>International Data Transfers</h2>
+            <p>Your personal data may be transferred to and processed in countries outside Bulgaria and the European Economic Area (EEA). In such cases, we ensure appropriate safeguards as required by GDPR.</p>
+        </div>
+        
+        <div class="policy-section">
+            <h2>Data Retention</h2>
+            <p>We retain your personal data only as long as necessary for the purposes stated in this policy or as required by law.</p>
+        </div>
+        
+        <div class="policy-section">
+            <h2>Third-Party Services</h2>
+            <p>We may use trusted third-party service providers (such as analytics or hosting) who process data on our behalf. A list of these providers is available upon request.</p>
+        </div>
+        
+        <div class="policy-section">
+            <h2>Automated Decision-Making</h2>
+            <p>We do not use your data for automated decision-making or profiling that produces legal effects concerning you.</p>
+        </div>
+        
         <div class="policy-section">
             <h2>Your Rights</h2>
             <p>You can ask us to access, correct, or delete your data at any time.</p>
         </div>
+        
         <div class="policy-section">
             <h2>Contact</h2>
             <p>Email: <a href="#" id="email-link">[email protected]</a></p>
         </div>
-        <script>
-          document.addEventListener('DOMContentLoaded', function() {
+        
+        <div class="policy-section">
+            <h2>Company Information</h2>
+            <p>Perla SV Ltd<br>54 "Tsvetna Gradina" Street<br>1421 Sofia, Bulgaria<br>VAT BG202025755</p>
+        </div>
+
+        <div class="policy-meta">Last updated: April 2025</div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
             var user = 'web';
             var domain = 'mitkox.com';
             var email = user + '@' + domain;
             var link = document.getElementById('email-link');
             link.href = 'mailto:' + email;
             link.textContent = email;
-          });
-        </script>
-        <div class="policy-section">
-            <h2>Company</h2>
-            <p>Perla SV Ltd<br>54 “Tsvetna Gradina" Street,<br>1421 Sofia, Bulgaria<br>VAT BG202025755</p>
-            <p>Last updated: April 2025</p>
-        </div>
-    </main>
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var user = 'web';
-    var domain = 'mitkox.com';
-    var email = user + '@' + domain;
-    var link = document.getElementById('email-link');
-    link.href = 'mailto:' + email;
-    link.textContent = email;
-  });
-</script>
-</main>
+        });
+    </script>
 </body>
 </html>

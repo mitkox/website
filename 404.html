@@ -19,16 +19,19 @@
             padding: 0 1rem;
         }
         .error-code {
-            font-size: 6rem;
+            font-size: 4rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--primary-color);
         }
         .error-message {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        .error-description {
+            font-size: 1rem;
             margin-bottom: 2rem;
             color: var(--text-light);
         }
@@ -51,9 +54,8 @@
         <div class="container">
             <div class="error-container">
                 <div class="error-code">404</div>
-                <div class="error-message">Page not found</div>
-                <p>The page you're looking for doesn't exist or has been moved.</p>
-                <div class="hero-accent-line"></div>
+                <div class="error-message">Page Not Found</div>
+                <div class="error-description">The page you're looking for doesn't exist or has been moved.</div>
                 <a href="/" class="btn btn-primary">Back to Home</a>
             </div>
         </div>

@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 },
                 color: {
-                    value: '#6366f1'
+                    value: '#1e40af'
                 },
                 shape: {
                     type: 'circle',
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 line_linked: {
                     enable: true,
                     distance: 150,
-                    color: '#6366f1',
+                    color: '#1e40af',
                     opacity: 0.2,
                     width: 1
                 },
@@ -239,12 +239,38 @@ if ('IntersectionObserver' in window) {
     });
 }
 
-// Hamburger menu logic removed
+// Mobile navigation functionality
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+        const isActive = navMenu.classList.contains('active');
+        
+        if (isActive) {
+            // Close menu
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navMenu.setAttribute('aria-hidden', 'true');
+        } else {
+            // Open menu
+            navMenu.classList.add('active');
+            navToggle.classList.add('active');
+            document.body.classList.add('no-scroll');
+            navToggle.setAttribute('aria-expanded', 'true');
+            navMenu.setAttribute('aria-hidden', 'false');
+        }
+    });
+}
+
 // Close mobile menu when clicking a nav link
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        if (navMenu) {
+        if (navMenu && navMenu.classList.contains('active')) {
             navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
             document.body.classList.remove('no-scroll');
             // Update ARIA attributes
             if (navToggle) {
@@ -255,10 +281,26 @@ navLinks.forEach(link => {
     });
 });
 
+// Close menu when clicking outside
+if (navMenu) {
+    document.addEventListener('click', (e) => {
+        if (navMenu.classList.contains('active') && 
+            !navMenu.contains(e.target) && 
+            !navToggle.contains(e.target)) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navMenu.setAttribute('aria-hidden', 'true');
+        }
+    });
+}
+
 // Handle keyboard navigation for accessibility
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
         navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
         document.body.classList.remove('no-scroll');
         if (navToggle) {
             navToggle.setAttribute('aria-expanded', 'false');
