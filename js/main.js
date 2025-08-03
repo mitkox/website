@@ -1,16 +1,22 @@
-// Initialize AOS (Animate On Scroll)
+// Performance optimization: Only load features if needed
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize AOS animations
-    AOS.init({
-        duration: 800,
-        easing: 'ease-out-cubic',
-        once: false,
-        mirror: true
-    });
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
-    // Initialize typewriter effect
+    // Initialize AOS animations with reduced motion support only if AOS is available
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: prefersReducedMotion ? 0 : 600,
+            easing: 'ease-out-cubic',
+            once: true, // Only animate once for better performance
+            mirror: false, // Disable mirror for better performance
+            disable: prefersReducedMotion ? true : false
+        });
+    }
+    
+    // Initialize typewriter effect with performance optimization
     const typewriterElement = document.getElementById('typewriter');
-    if (typewriterElement) {
+    if (typewriterElement && !prefersReducedMotion) {
         const phrases = [
             'Industrial AI Solutions',
             'Edge Computing',
@@ -23,133 +29,52 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentPhraseIndex = 0;
         let currentCharIndex = 0;
         let isDeleting = false;
-        let typingSpeed = 100;
+        let typingSpeed = 80; // Slightly faster for better UX
+        let timeoutId;
         
         function typeEffect() {
             const currentPhrase = phrases[currentPhraseIndex];
             
             if (isDeleting) {
-                // Deleting text
                 typewriterElement.textContent = currentPhrase.substring(0, currentCharIndex - 1);
                 currentCharIndex--;
-                typingSpeed = 50; // Faster when deleting
+                typingSpeed = 40;
             } else {
-                // Typing text
                 typewriterElement.textContent = currentPhrase.substring(0, currentCharIndex + 1);
                 currentCharIndex++;
-                typingSpeed = 100; // Normal typing speed
+                typingSpeed = 80;
             }
             
-            // Check if word is complete
             if (!isDeleting && currentCharIndex === currentPhrase.length) {
-                // Pause at the end of typing
                 isDeleting = true;
-                typingSpeed = 1500; // Wait before deleting
+                typingSpeed = 1200;
             } else if (isDeleting && currentCharIndex === 0) {
-                // Move to next phrase after deleting
                 isDeleting = false;
                 currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-                typingSpeed = 500; // Pause before typing next word
+                typingSpeed = 400;
             }
             
-            setTimeout(typeEffect, typingSpeed);
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+            
+            timeoutId = setTimeout(typeEffect, typingSpeed);
         }
         
-        // Start the typing effect
-        setTimeout(typeEffect, 1000);
+        timeoutId = setTimeout(typeEffect, 800);
+        
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', () => {
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+        });
+    } else if (typewriterElement && prefersReducedMotion) {
+        // For users who prefer reduced motion, show a static text
+        typewriterElement.textContent = 'Industrial AI Solutions';
     }
     
-    // Initialize particles.js
-    if (document.getElementById('particles-js')) {
-        particlesJS('particles-js', {
-            particles: {
-                number: {
-                    value: 80,
-                    density: {
-                        enable: true,
-                        value_area: 800
-                    }
-                },
-                color: {
-                    value: '#1e40af'
-                },
-                shape: {
-                    type: 'circle',
-                    stroke: {
-                        width: 0,
-                        color: '#000000'
-                    }
-                },
-                opacity: {
-                    value: 0.3,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 1,
-                        opacity_min: 0.1,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 2,
-                        size_min: 0.1,
-                        sync: false
-                    }
-                },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: '#1e40af',
-                    opacity: 0.2,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 1,
-                    direction: 'none',
-                    random: true,
-                    straight: false,
-                    out_mode: 'out',
-                    bounce: false,
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 1200
-                    }
-                }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: 'grab'
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: 'push'
-                    },
-                    resize: true
-                },
-                modes: {
-                    grab: {
-                        distance: 140,
-                        line_linked: {
-                            opacity: 0.5
-                        }
-                    },
-                    push: {
-                        particles_nb: 4
-                    }
-                }
-            },
-            retina_detect: true
-        });
-    }
+    // Removed particles.js for better performance and cleaner design
 });
 
 // Add shadow to header when scrolling
@@ -239,12 +164,16 @@ if ('IntersectionObserver' in window) {
     });
 }
 
-// Mobile navigation functionality
+// Mobile navigation functionality with enhanced touch support
 const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
 
 if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
+    // Add touch event listeners for better mobile experience
+    const toggleMenu = (event) => {
+        // Prevent default to avoid potential scroll issues
+        event.preventDefault();
+        
         const isActive = navMenu.classList.contains('active');
         
         if (isActive) {
@@ -261,8 +190,32 @@ if (navToggle && navMenu) {
             document.body.classList.add('no-scroll');
             navToggle.setAttribute('aria-expanded', 'true');
             navMenu.setAttribute('aria-hidden', 'false');
+            
+            // Focus first nav link for keyboard users
+            const firstNavLink = navMenu.querySelector('.nav-link');
+            if (firstNavLink) {
+                setTimeout(() => firstNavLink.focus(), 100);
+            }
         }
-    });
+    };
+    
+    // Use both click and touchstart for better responsiveness
+    navToggle.addEventListener('click', toggleMenu);
+    
+    // Handle touch events separately to prevent double-firing
+    let touchStarted = false;
+    navToggle.addEventListener('touchstart', (e) => {
+        touchStarted = true;
+        // Prevent the subsequent click event
+        setTimeout(() => { touchStarted = false; }, 300);
+    }, { passive: true });
+    
+    navToggle.addEventListener('touchend', (e) => {
+        if (touchStarted) {
+            e.preventDefault();
+            toggleMenu(e);
+        }
+    }, { passive: false });
 }
 
 // Close mobile menu when clicking a nav link
@@ -310,31 +263,84 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Simple email protection to prevent spam
+// Simple email protection with enhanced UX and error handling
 document.addEventListener('DOMContentLoaded', function() {
     const contactButtons = document.querySelectorAll('.contact-btn');
     
-    // Setup contact buttons
+    // Setup contact buttons with better error handling
     if (contactButtons.length > 0) {
         contactButtons.forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function(event) {
+                // Prevent double-clicks
+                if (this.classList.contains('processing')) {
+                    return;
+                }
+                
                 const name = this.getAttribute('data-name');
                 const domain = this.getAttribute('data-domain');
                 
                 if (name && domain) {
+                    // Add processing state
+                    this.classList.add('processing');
+                    
                     // Only construct the email address when the button is clicked
                     const email = `${name}@${domain}`;
                     
                     // Add a subtle button click effect
                     this.classList.add('clicked');
+                    
+                    // Update button text temporarily for user feedback
+                    const originalContent = this.innerHTML;
+                    const btnContent = this.querySelector('.btn-content span');
+                    if (btnContent) {
+                        btnContent.textContent = 'Opening...';
+                    }
+                    
                     setTimeout(() => {
                         this.classList.remove('clicked');
+                        
+                        // Restore original content
+                        setTimeout(() => {
+                            this.innerHTML = originalContent;
+                            this.classList.remove('processing');
+                        }, 1000);
                     }, 300);
                     
-                    // Open the user's mail client
+                    // Open the user's mail client with error handling
                     setTimeout(() => {
-                        window.location.href = `mailto:${email}`;
+                        try {
+                            window.location.href = `mailto:${email}`;
+                        } catch (error) {
+                            console.log('Error opening email client:', error);
+                            // Fallback: copy email to clipboard if possible
+                            if (navigator.clipboard && navigator.clipboard.writeText) {
+                                navigator.clipboard.writeText(email).then(() => {
+                                    if (btnContent) {
+                                        btnContent.textContent = 'Email Copied!';
+                                    }
+                                }).catch(() => {
+                                    if (btnContent) {
+                                        btnContent.textContent = email;
+                                    }
+                                });
+                            } else {
+                                // Last resort: show the email address
+                                if (btnContent) {
+                                    btnContent.textContent = email;
+                                }
+                            }
+                        }
                     }, 100);
+                } else {
+                    console.warn('Missing email data attributes on contact button');
+                }
+            });
+            
+            // Add keyboard support
+            button.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    this.click();
                 }
             });
         });
