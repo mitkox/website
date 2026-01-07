@@ -1,17 +1,93 @@
+// Theme Management - Initialize before DOM content loads
+(function() {
+    // Check for saved theme preference or default to light theme
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+})();
+
 // Performance optimization: Only load features if needed
 document.addEventListener('DOMContentLoaded', () => {
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    // Get current theme
+    function getCurrentTheme() {
+        return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+
+    // Set theme
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+
+        // Update aria-label
+        if (themeToggle) {
+            themeToggle.setAttribute('aria-label',
+                theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+            );
+        }
+
+        // Update meta theme-color
+        const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+        if (metaThemeColor) {
+            metaThemeColor.setAttribute('content',
+                theme === 'dark' ? '#0a0e1a' : '#ffffff'
+            );
+        }
+    }
+
+    // Toggle theme
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = getCurrentTheme();
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+
+        // Keyboard accessibility
+        themeToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                themeToggle.click();
+            }
+        });
+    }
+
+    // Listen for system theme changes
+    prefersDarkScheme.addEventListener('change', (e) => {
+        // Only auto-switch if user hasn't manually set a preference
+        if (!localStorage.getItem('theme')) {
+            setTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
+
     // Initialize AOS animations with reduced motion support only if AOS is available
     if (typeof AOS !== 'undefined') {
         AOS.init({
-            duration: prefersReducedMotion ? 0 : 600,
-            easing: 'ease-out-cubic',
-            once: true, // Only animate once for better performance
-            mirror: false, // Disable mirror for better performance
-            disable: prefersReducedMotion ? true : false
+            duration: prefersReducedMotion ? 0 : 800,
+            easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+            once: true,
+            mirror: false,
+            disable: prefersReducedMotion ? true : false,
+            offset: 100,
+            delay: 0
         });
+    }
+
+    // 2026 Trend: Add parallax effect to hero section
+    if (!prefersReducedMotion) {
+        const heroSection = document.querySelector('.hero-section');
+        if (heroSection) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallaxSpeed = 0.5;
+                heroSection.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+            }, { passive: true });
+        }
     }
     
     // Initialize typewriter effect with performance optimization
@@ -394,11 +470,36 @@ document.addEventListener('DOMContentLoaded', function() {
         } catch (e) {}
         return passive;
     })();
-    
+
     if (supportsPassive) {
         const wheelOpt = { passive: true };
         const wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
         window.addEventListener(wheelEvent, function(){}, wheelOpt);
-        window.addEventListener('touchstart', function(){}, wheelOpt);    
+        window.addEventListener('touchstart', function(){}, wheelOpt);
     }
 });
+
+// 2026 Trend: Add smooth mouse tracking for cards (desktop only)
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const cards = document.querySelectorAll('.service-card, .contact-card-inner');
+
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+        });
+    });
+}
