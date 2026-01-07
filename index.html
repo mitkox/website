@@ -16,26 +16,90 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Mitko X | Enterprise, Industrial & Defense AI Consulting">
     <meta name="twitter:description" content="Secure on‑prem & edge GenAI, predictive maintenance, AI agents, governance & MLOps for regulated industries.">
-    <meta name="theme-color" content="#0f172a">
+    <meta name="theme-color" content="#ffffff">
     <title>Mitko X | Enterprise, Industrial & Defense AI Consulting</title>
     <link rel="canonical" href="https://mitkox.com">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/aos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
 </head>
-<body class="dark-theme" data-aos-easing="ease-out-cubic" data-aos-duration="800" data-aos-delay="0">
+<body data-aos-easing="ease-out-cubic" data-aos-duration="800" data-aos-delay="0">
     <a href="#main" class="skip-link">Skip to main content</a>
     <header class="header" aria-label="Main Navigation">
         <div class="container">
             <nav class="navbar" aria-label="Primary">
                 <div class="logo">
                     <a href="#home" aria-label="Go to homepage">
-                        <img src="img/logo.svg" alt="Mitko X corporate logo" class="site-logo">
+                        <svg width="160" height="48" viewBox="0 0 160 48" xmlns="http://www.w3.org/2000/svg" class="site-logo" role="img" aria-label="Mitko X corporate logo">
+                          <defs>
+                            <linearGradient id="logoGradientLight" x1="0%" y1="0%" x2="100%" y2="0%">
+                              <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+                              <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="logoGradientDark" x1="0%" y1="0%" x2="100%" y2="0%">
+                              <stop offset="0%" style="stop-color:#38bdf8;stop-opacity:1" />
+                              <stop offset="100%" style="stop-color:#22d3ee;stop-opacity:1" />
+                            </linearGradient>
+                          </defs>
+                          <g transform="translate(0, 10)">
+                            <path d="M 12 4 L 20 8 L 20 16 L 12 20 L 4 16 L 4 8 Z"
+                                  stroke="url(#logoGradientLight)"
+                                  stroke-width="1.5"
+                                  fill="none"
+                                  class="logo-frame-light"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path d="M 12 4 L 20 8 L 20 16 L 12 20 L 4 16 L 4 8 Z"
+                                  stroke="url(#logoGradientDark)"
+                                  stroke-width="1.5"
+                                  fill="none"
+                                  class="logo-frame-dark"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  style="display: none;"/>
+                            <path d="M 7 15 L 7 9 L 12 12 L 17 9 L 17 15"
+                                  stroke="url(#logoGradientLight)"
+                                  class="logo-icon-light"
+                                  stroke-width="2"
+                                  fill="none"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path d="M 7 15 L 7 9 L 12 12 L 17 9 L 17 15"
+                                  stroke="url(#logoGradientDark)"
+                                  class="logo-icon-dark"
+                                  stroke-width="2"
+                                  fill="none"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  style="display: none;"/>
+                            <circle cx="12" cy="12" r="1.5"
+                                    fill="url(#logoGradientLight)"
+                                    class="logo-dot-light"/>
+                            <circle cx="12" cy="12" r="1.5"
+                                    fill="url(#logoGradientDark)"
+                                    class="logo-dot-dark"
+                                    style="display: none;"/>
+                          </g>
+                          <g transform="translate(32, 13)">
+                            <text x="0" y="16"
+                                  font-family="'Inter', -apple-system, system-ui, sans-serif"
+                                  font-size="18"
+                                  font-weight="700"
+                                  letter-spacing="0.8px"
+                                  class="logo-text">MITKO</text>
+                            <text x="62" y="16"
+                                  font-family="'Inter', -apple-system, system-ui, sans-serif"
+                                  font-size="18"
+                                  font-weight="300"
+                                  letter-spacing="0.5px"
+                                  class="logo-text-x">X</text>
+                          </g>
+                        </svg>
                     </a>
                 </div>
                 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -48,6 +112,14 @@
                     <li><a href="#services" class="nav-link">Solutions</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <svg class="theme-icon sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <svg class="theme-icon moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
             </nav>
         </div>
     </header>
@@ -55,10 +127,10 @@
         <section id="home" class="hero-section">
             <div class="container">
                 <div class="hero-content centered">
-                    <h1 data-aos="fade-up" data-aos-delay="100">Enterprise & Industrial AI Engineering<br>Secure. Governed. Deployed.</h1>
-                    <p data-aos="fade-up" data-aos-delay="300">We work with large enterprise, industrial and defense teams move from AI prototypes to production impact: safer AI, resilient edge intelligence, measurable ROI.</p>
+                    <h1 data-aos="fade-up" data-aos-delay="100">Enterprise AI Engineering<br>Secure. Governed. Production-Ready.</h1>
+                    <p data-aos="fade-up" data-aos-delay="300">Helping enterprise, industrial, and defense teams ship AI that works: from strategy to deployment, with security, governance, and measurable impact.</p>
                     <div class="typewriter-container" data-aos="fade-up" data-aos-delay="350">
-                        <span class="typewriter-prefix">Focus areas:</span>
+                        <span class="typewriter-prefix">Solutions:</span>
                         <span class="typewriter-text" id="typewriter"></span>
                     </div>
                 </div>
@@ -71,28 +143,28 @@
                 </div>
                 <div class="services-grid centered" style="grid-gap:16px;">
                     <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
-                        <h3>Enterprise AI Strategy</h3>
-                        <p>Translate board objectives into an actionable AI roadmap with governance, ROI models & capability build-up.</p>
+                        <h3>AI Strategy</h3>
+                        <p>Transform business goals into executable AI roadmaps with clear governance, ROI models, and capability frameworks.</p>
                     </div>
                     <div class="service-card" data-aos="zoom-in" data-aos-delay="150">
                         <h3>Edge & Embedded AI</h3>
-                        <p>Low‑latency models at the edge for inspection, energy, logistics & battlefield awareness.</p>
+                        <p>Deploy low-latency models at the edge for industrial inspection, logistics optimization, and real-time intelligence.</p>
                     </div>
                     <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
-                        <h3>On‑Prem / Sovereign GenAI</h3>
-                        <p>Secure AI platform deployments (air‑gapped / IL / ISC adjacent) with red/blue‑teaming & guardrails.</p>
+                        <h3>Secure On-Prem AI</h3>
+                        <p>Build sovereign AI platforms with air-gapped deployments, security hardening, and compliance controls.</p>
                     </div>
                     <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
-                        <h3>Operational AI Agents</h3>
-                        <p>Secure task & workflow agents with auditability for engineering, field ops & mission planning.</p>
+                        <h3>AI Agents & Automation</h3>
+                        <p>Ship production-grade agents with task orchestration, audit trails, and human-in-the-loop controls.</p>
                     </div>
                     <div class="service-card" data-aos="zoom-in" data-aos-delay="350">
-                        <h3>MLOps & Model Assurance</h3>
-                        <p>Lifecycle tooling: evals, drift detection, lineage, safety controls & continuous delivery.</p>
+                        <h3>MLOps & Observability</h3>
+                        <p>End-to-end lifecycle management: evaluation frameworks, drift detection, lineage tracking, and CI/CD pipelines.</p>
                     </div>
                     <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
-                        <h3>Data Estate Modernization</h3>
-                        <p>Unify data flywheels, data systems architecture for high‑trust AI applications.</p>
+                        <h3>Data Infrastructure</h3>
+                        <p>Modernize data systems for AI workloads: architecture design, pipeline automation, and quality assurance.</p>
                     </div>
                 </div>
             </div>
@@ -104,16 +176,16 @@
                 </div>
                 <div class="services-grid centered" style="grid-gap:16px;">
                     <div class="service-card" data-aos="zoom-in" data-aos-delay="150">
-                        <h3>Measurable ROI</h3>
-                        <p>Value engineering frameworks: baseline, hypothesis, KPI instrumentation & post‑deployment impact tracking.</p>
+                        <h3>Proven Impact</h3>
+                        <p>Value-driven approach with baseline metrics, hypothesis testing, KPI tracking, and post-deployment ROI validation.</p>
                     </div>
                     <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
-                        <h3>Vendor Neutral</h3>
-                        <p>Hybrid architectures spanning sovereign cloud, on‑prem, edge and on device deployments.</p>
+                        <h3>Architecture Agnostic</h3>
+                        <p>Build hybrid solutions across cloud, on-premises, edge, and air-gapped environments with any tech stack.</p>
                     </div>
                     <div class="service-card" data-aos="zoom-in" data-aos-delay="250">
-                        <h3>From Pilots to Scale</h3>
-                        <p>Harden POC code into resilient, observable production systems with rigorous change control.</p>
+                        <h3>Production First</h3>
+                        <p>Move from POC to production with battle-tested patterns, monitoring, and operational excellence.</p>
                     </div>
                 </div>
             </div>
@@ -121,18 +193,18 @@
         <section id="contact" class="contact-section">
             <div class="container">
                 <div class="section-header" data-aos="fade-up">
-                    <h2>Contact</h2>
-                    <p>Need to operationalize AI under real-world constraints? Let’s build your execution plan.</p>
+                    <h2>Let's Talk</h2>
+                    <p>Ready to ship production AI? Let's discuss your challenges and build a concrete plan.</p>
                 </div>
                 <div class="contact-content">
                     <div class="contact-card" data-aos="zoom-in" data-aos-delay="200">
                         <div class="contact-card-inner">
                             <div class="contact-card-content">
-                                <p>Request an assessment: current architecture, quick wins, security & governance gaps, 90‑day action map.</p>
+                                <p>Get a technical assessment: architecture review, security posture, quick wins, and a 90-day roadmap.</p>
                                 <button class="contact-btn" data-name="sales" data-domain="mitkox.com">
                                     <span class="btn-content">
-                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Email"><path d="M2 4h16v12H2V4zm0 0l8 6 8-6" stroke="#6d64f7" stroke-width="2" fill="none"/></svg>
-                                        <span>Get In Touch</span>
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Email"><path d="M2 4h16v12H2V4zm0 0l8 6 8-6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                                        <span>Start Conversation</span>
                                     </span>
                                 </button>
                             </div>
