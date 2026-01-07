@@ -1,87 +1,121 @@
-<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+<svg width="160" height="48" viewBox="0 0 160 48" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Professional gradient matching the site's blue theme -->
-    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:1" />
+    <!-- Light theme gradient -->
+    <linearGradient id="logoGradientLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
     </linearGradient>
-    
-    <!-- Secondary gradient for accents -->
-    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.8" />
-      <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:0.4" />
+
+    <!-- Dark theme gradient - more vibrant -->
+    <linearGradient id="logoGradientDark" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#38bdf8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#22d3ee;stop-opacity:1" />
     </linearGradient>
-    
-    <!-- Subtle glow effect for premium feel -->
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
-      <feMerge> 
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
   </defs>
-  
-  <!-- Main logo icon - Neural network/AI representation -->
-  <g transform="translate(8, 12)">
-    <!-- Central processing core -->
-    <circle cx="18" cy="18" r="3.5" fill="url(#logoGradient)" filter="url(#glow)"/>
-    
-    <!-- Neural network connections (representing AI intelligence) -->
-    <g stroke="url(#logoGradient)" stroke-width="1.5" fill="none" opacity="0.7">
-      <!-- Primary layer connections -->
-      <line x1="18" y1="18" x2="30" y2="10" stroke-linecap="round"/>
-      <line x1="18" y1="18" x2="30" y2="26" stroke-linecap="round"/>
-      <line x1="18" y1="18" x2="6" y2="12" stroke-linecap="round"/>
-      <line x1="18" y1="18" x2="6" y2="24" stroke-linecap="round"/>
-      
-      <!-- Secondary connections -->
-      <line x1="30" y1="10" x2="38" y2="6" stroke-linecap="round"/>
-      <line x1="30" y1="10" x2="38" y2="14" stroke-linecap="round"/>
-      <line x1="30" y1="26" x2="38" y2="22" stroke-linecap="round"/>
-      <line x1="30" y1="26" x2="38" y2="30" stroke-linecap="round"/>
-    </g>
-    
-    <!-- Neural nodes -->
-    <circle cx="30" cy="10" r="2.2" fill="url(#logoGradient)" opacity="0.9"/>
-    <circle cx="30" cy="26" r="2.2" fill="url(#logoGradient)" opacity="0.9"/>
-    <circle cx="6" cy="12" r="1.8" fill="url(#logoGradient)" opacity="0.8"/>
-    <circle cx="6" cy="24" r="1.8" fill="url(#logoGradient)" opacity="0.8"/>
-    
-    <!-- Output nodes (representing solutions/results) -->
-    <circle cx="38" cy="6" r="1.3" fill="url(#logoGradient)" opacity="0.7"/>
-    <circle cx="38" cy="14" r="1.3" fill="url(#logoGradient)" opacity="0.7"/>
-    <circle cx="38" cy="22" r="1.3" fill="url(#logoGradient)" opacity="0.7"/>
-    <circle cx="38" cy="30" r="1.3" fill="url(#logoGradient)" opacity="0.7"/>
-    
-    <!-- Abstract geometric elements (representing precision/technology) -->
-    <rect x="0" y="0" width="0.8" height="6" fill="url(#accentGradient)" opacity="0.5" rx="0.4"/>
-    <rect x="0" y="30" width="0.8" height="6" fill="url(#accentGradient)" opacity="0.5" rx="0.4"/>
-    <rect x="43" y="0" width="0.8" height="6" fill="url(#accentGradient)" opacity="0.5" rx="0.4"/>
-    <rect x="43" y="30" width="0.8" height="6" fill="url(#accentGradient)" opacity="0.5" rx="0.4"/>
+
+  <!-- Creative M/X fusion icon representing AI/tech -->
+  <g transform="translate(0, 10)">
+    <!-- Outer hexagon frame -->
+    <path d="M 12 4 L 20 8 L 20 16 L 12 20 L 4 16 L 4 8 Z"
+          stroke="url(#logoGradientLight)"
+          stroke-width="1.5"
+          fill="none"
+          class="logo-frame-light"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+
+    <path d="M 12 4 L 20 8 L 20 16 L 12 20 L 4 16 L 4 8 Z"
+          stroke="url(#logoGradientDark)"
+          stroke-width="1.5"
+          fill="none"
+          class="logo-frame-dark"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          style="display: none;"/>
+
+    <!-- Inner M shape with neural network connection -->
+    <path d="M 7 15 L 7 9 L 12 12 L 17 9 L 17 15"
+          stroke="url(#logoGradientLight)"
+          class="logo-icon-light"
+          stroke-width="2"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+
+    <path d="M 7 15 L 7 9 L 12 12 L 17 9 L 17 15"
+          stroke="url(#logoGradientDark)"
+          class="logo-icon-dark"
+          stroke-width="2"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          style="display: none;"/>
+
+    <!-- Center node -->
+    <circle cx="12" cy="12" r="1.5"
+            fill="url(#logoGradientLight)"
+            class="logo-dot-light"/>
+
+    <circle cx="12" cy="12" r="1.5"
+            fill="url(#logoGradientDark)"
+            class="logo-dot-dark"
+            style="display: none;"/>
   </g>
-  
-  <!-- Company name with professional typography -->
-  <g transform="translate(65, 12)">
-    <!-- "MITKO" - main brand name -->
-    <text x="0" y="22" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="url(#logoGradient)" letter-spacing="-0.3px">
+
+  <!-- Modern "MITKO X" typography -->
+  <g transform="translate(32, 13)">
+    <!-- MITKO -->
+    <text x="0" y="16"
+          font-family="'Inter', -apple-system, system-ui, sans-serif"
+          font-size="18"
+          font-weight="700"
+          letter-spacing="0.8px"
+          class="logo-text">
       MITKO
     </text>
-    
-    <!-- "X" - distinctive separator with subtle styling -->
-    <text x="78" y="22" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="300" fill="url(#logoGradient)" opacity="0.85">
+
+    <!-- X with modern styling -->
+    <text x="62" y="16"
+          font-family="'Inter', -apple-system, system-ui, sans-serif"
+          font-size="18"
+          font-weight="300"
+          letter-spacing="0.5px"
+          class="logo-text-x">
       X
     </text>
-    
-    <!-- Professional tagline -->
-    <text x="0" y="38" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="500" fill="url(#logoGradient)" opacity="0.65" letter-spacing="0.8px">
-      ENTERPRISE AI SOLUTIONS
-    </text>
   </g>
-  
-  <!-- Subtle accent elements for premium feel -->
-  <line x1="65" y1="48" x2="190" y2="48" stroke="url(#accentGradient)" stroke-width="0.8" opacity="0.4" stroke-linecap="round"/>
-  
-  <!-- Small geometric accent -->
-  <rect x="190" y="46" width="2" height="4" fill="url(#logoGradient)" opacity="0.3" rx="1"/>
+
+  <style>
+    /* Light theme (default) */
+    .logo-text, .logo-text-x {
+      fill: #0f172a;
+    }
+    .logo-frame-light, .logo-icon-light, .logo-dot-light {
+      display: block;
+    }
+    .logo-frame-dark, .logo-icon-dark, .logo-dot-dark {
+      display: none;
+    }
+
+    /* Dark theme - brighter, more visible */
+    [data-theme="dark"] .logo-text,
+    [data-theme="dark"] .logo-text-x {
+      fill: #f1f5f9;
+    }
+    [data-theme="dark"] .logo-frame-light,
+    [data-theme="dark"] .logo-icon-light,
+    [data-theme="dark"] .logo-dot-light {
+      display: none;
+    }
+    [data-theme="dark"] .logo-frame-dark,
+    [data-theme="dark"] .logo-icon-dark,
+    [data-theme="dark"] .logo-dot-dark {
+      display: block;
+    }
+
+    /* Hover effect */
+    .logo-text, .logo-text-x {
+      transition: opacity 0.3s ease;
+    }
+  </style>
 </svg>
