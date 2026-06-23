@@ -782,6 +782,65 @@ h1 {
     cursor: wait;
 }
 
+.contact-status {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 12px 14px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.contact-status[hidden] {
+    display: none;
+}
+
+.contact-status.is-success {
+    border-color: rgba(15, 159, 143, 0.4);
+    background: rgba(15, 159, 143, 0.08);
+}
+
+.contact-status.is-error {
+    border-color: rgba(202, 67, 67, 0.4);
+    background: rgba(202, 67, 67, 0.07);
+}
+
+.contact-status a {
+    color: var(--cobalt);
+    font-weight: 800;
+    word-break: break-word;
+}
+
+.contact-status .status-actions {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.contact-status .status-copy {
+    appearance: none;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--cobalt);
+    font-weight: 800;
+    font-size: 0.82rem;
+    padding: 7px 13px;
+    cursor: pointer;
+    touch-action: manipulation;
+    transition: border-color 160ms var(--ease), color 160ms var(--ease), background 160ms var(--ease);
+}
+
+.contact-status .status-copy:hover {
+    border-color: var(--cobalt);
+    background: rgba(37, 87, 214, 0.06);
+}
+
 .contact-note {
     max-width: 48rem;
     font-size: 0.9rem;

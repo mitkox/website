@@ -125,6 +125,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
+        const statusEl = document.getElementById('contactStatus');
+
+        const setStatus = (state, nodes) => {
+            if (!statusEl) return;
+            statusEl.className = 'contact-status' + (state ? ` is-${state}` : '');
+            statusEl.replaceChildren(...nodes);
+            statusEl.hidden = false;
+        };
+
+        const copyToClipboard = async (text) => {
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(text);
+                    return true;
+                }
+            } catch (error) {
+                // Fall through to the legacy execCommand path below.
+            }
+            try {
+                const area = document.createElement('textarea');
+                area.value = text;
+                area.setAttribute('readonly', '');
+                area.style.position = 'absolute';
+                area.style.left = '-9999px';
+                document.body.appendChild(area);
+                area.select();
+                const ok = document.execCommand('copy');
+                document.body.removeChild(area);
+                return ok;
+            } catch (error) {
+                return false;
+            }
+        };
+
+        // Triggering the mailto via a synchronous anchor click keeps it tied to
+        // the user gesture, so desktop and mobile browsers (Chrome, Safari,
+        // Firefox, Edge) treat it as a user-initiated external navigation
+        // instead of silently blocking it.
+        const triggerMailto = (url) => {
+            const opener = document.createElement('a');
+            opener.href = url;
+            opener.style.display = 'none';
+            document.body.appendChild(opener);
+            opener.click();
+            document.body.removeChild(opener);
+        };
+
         contactForm.addEventListener('submit', (event) => {
             event.preventDefault();
 
@@ -144,6 +191,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const subject = company
                 ? `Enterprise AI conversation - ${company}`
                 : 'Enterprise AI conversation';
+            // CRLF line breaks render reliably across mail clients (notably
+            // Outlook desktop) once URL-encoded as %0D%0A.
             const body = [
                 `Name: ${getValue('name') || 'Not provided'}`,
                 `Work email: ${getValue('email')}`,
@@ -152,23 +201,70 @@ document.addEventListener('DOMContentLoaded', () => {
                 '',
                 'What should we discuss?',
                 getValue('message') || 'Not provided'
-            ].join('\n');
+            ].join('\r\n').replace(/\r\n|\r|\n/g, '\r\n');
+
+            const mailtoUrl = `mailto:${address}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
             button?.classList.add('processing');
-
             if (label) {
                 label.textContent = 'Opening email...';
             }
 
-            window.setTimeout(() => {
-                window.location.href = `mailto:${address}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            }, 80);
+            // Detect whether the browser actually handed off to a mail app. If
+            // the page never loses focus or visibility, no handler is available
+            // and we surface a copy-to-clipboard fallback instead of failing
+            // silently.
+            let handedOff = false;
+            const markHandedOff = () => { handedOff = true; };
+            const onVisibility = () => {
+                if (document.hidden) handedOff = true;
+            };
+            window.addEventListener('blur', markHandedOff, { once: true });
+            document.addEventListener('visibilitychange', onVisibility);
+
+            triggerMailto(mailtoUrl);
 
             window.setTimeout(() => {
+                window.removeEventListener('blur', markHandedOff);
+                document.removeEventListener('visibilitychange', onVisibility);
+
                 if (label) {
                     label.textContent = originalLabel;
                 }
                 button?.classList.remove('processing');
+
+                if (handedOff) {
+                    const note = document.createElement('span');
+                    note.textContent = `Opening your email app with everything pre-filled. If it didn't appear, email ${address} directly.`;
+                    setStatus('success', [note]);
+                    return;
+                }
+
+                // Fallback: this browser has no mail handler configured.
+                const intro = document.createElement('span');
+                intro.textContent = 'Your browser has no email app set up. Email ';
+                const mail = document.createElement('a');
+                mail.href = mailtoUrl;
+                mail.rel = 'nofollow';
+                mail.textContent = address;
+                const tail = document.createElement('span');
+                tail.textContent = ' directly — your message is ready to copy below.';
+
+                const actions = document.createElement('span');
+                actions.className = 'status-actions';
+                const copyBtn = document.createElement('button');
+                copyBtn.type = 'button';
+                copyBtn.className = 'status-copy';
+                copyBtn.textContent = 'Copy message';
+                const fullMessage = `To: ${address}\r\nSubject: ${subject}\r\n\r\n${body}`;
+                copyBtn.addEventListener('click', async () => {
+                    const ok = await copyToClipboard(fullMessage);
+                    copyBtn.textContent = ok ? 'Copied' : 'Press Ctrl/Cmd+C';
+                    window.setTimeout(() => { copyBtn.textContent = 'Copy message'; }, 2000);
+                });
+                actions.appendChild(copyBtn);
+
+                setStatus('error', [intro, mail, tail, document.createElement('br'), actions]);
             }, 1200);
         });
     }
