@@ -110,6 +110,19 @@ document.addEventListener('DOMContentLoaded', () => {
         sections.forEach((section) => sectionObserver.observe(section));
     }
 
+    // Contact address is base64-encoded so it never appears as plaintext in any
+    // static asset (HTML, JS, or structured data) that email harvesters scrape.
+    // It is decoded only at runtime, for real visitors. To change it, run
+    // btoa('user@domain.com') in a browser console and replace the value below.
+    const CONTACT_B64 = 'c2FsZXNAbWl0a294LmNvbQ==';
+    const getContactAddress = () => {
+        try {
+            return atob(CONTACT_B64);
+        } catch (error) {
+            return '';
+        }
+    };
+
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', (event) => {
@@ -120,9 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const button = contactForm.querySelector('.contact-btn');
             if (button?.classList.contains('processing')) return;
 
-            const name = contactForm.getAttribute('data-name');
-            const domain = contactForm.getAttribute('data-domain');
-            if (!name || !domain) return;
+            const address = getContactAddress();
+            if (!address) return;
 
             const label = button?.querySelector('.btn-content span');
             const originalLabel = label?.textContent || 'Start the conversation';
@@ -149,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             window.setTimeout(() => {
-                window.location.href = `mailto:${name}@${domain}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                window.location.href = `mailto:${address}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             }, 80);
 
             window.setTimeout(() => {
@@ -163,9 +175,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const emailLink = document.getElementById('email-link');
     if (emailLink) {
-        const email = 'sales@mitkox.com';
-        emailLink.href = `mailto:${email}`;
-        emailLink.textContent = email;
+        const email = getContactAddress();
+        if (email) {
+            emailLink.href = `mailto:${email}`;
+            emailLink.textContent = email;
+            emailLink.setAttribute('rel', 'nofollow');
+        }
     }
 
     if ('serviceWorker' in navigator) {

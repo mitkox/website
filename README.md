@@ -80,7 +80,7 @@ Pull requests and suggestions are welcome! Please open an issue or PR for discus
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## Contact
-For business inquiries, contact: `web@mitkox.com`
+For business inquiries, use the contact form at https://mitkox.com/#contact
 
 ---
 
