@@ -162,13 +162,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const emailLink = document.getElementById('email-link');
-    if (emailLink) {
-        const email = getContactAddress();
-        if (email) {
-            emailLink.href = `mailto:${email}`;
-            emailLink.textContent = email;
-            emailLink.setAttribute('rel', 'nofollow');
-        }
+    if (emailLink && contactAddress) {
+        emailLink.href = `mailto:${contactAddress}`;
+        emailLink.textContent = contactAddress;
+        emailLink.setAttribute('rel', 'nofollow');
     }
 
     if ('serviceWorker' in navigator) {
