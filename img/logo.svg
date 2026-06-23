@@ -1,121 +1,18 @@
-<svg width="160" height="48" viewBox="0 0 160 48" xmlns="http://www.w3.org/2000/svg">
+<svg width="160" height="48" viewBox="0 0 160 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logo-title">
+  <title id="logo-title">Mitko X</title>
   <defs>
-    <!-- Light theme gradient -->
-    <linearGradient id="logoGradientLight" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
-    </linearGradient>
-
-    <!-- Dark theme gradient - more vibrant -->
-    <linearGradient id="logoGradientDark" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#38bdf8;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#22d3ee;stop-opacity:1" />
+    <linearGradient id="mark-gradient" x1="4" y1="4" x2="20" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2557d6"/>
+      <stop offset="1" stop-color="#0f9f8f"/>
     </linearGradient>
   </defs>
-
-  <!-- Creative M/X fusion icon representing AI/tech -->
-  <g transform="translate(0, 10)">
-    <!-- Outer hexagon frame -->
-    <path d="M 12 4 L 20 8 L 20 16 L 12 20 L 4 16 L 4 8 Z"
-          stroke="url(#logoGradientLight)"
-          stroke-width="1.5"
-          fill="none"
-          class="logo-frame-light"
-          stroke-linecap="round"
-          stroke-linejoin="round"/>
-
-    <path d="M 12 4 L 20 8 L 20 16 L 12 20 L 4 16 L 4 8 Z"
-          stroke="url(#logoGradientDark)"
-          stroke-width="1.5"
-          fill="none"
-          class="logo-frame-dark"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          style="display: none;"/>
-
-    <!-- Inner M shape with neural network connection -->
-    <path d="M 7 15 L 7 9 L 12 12 L 17 9 L 17 15"
-          stroke="url(#logoGradientLight)"
-          class="logo-icon-light"
-          stroke-width="2"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"/>
-
-    <path d="M 7 15 L 7 9 L 12 12 L 17 9 L 17 15"
-          stroke="url(#logoGradientDark)"
-          class="logo-icon-dark"
-          stroke-width="2"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          style="display: none;"/>
-
-    <!-- Center node -->
-    <circle cx="12" cy="12" r="1.5"
-            fill="url(#logoGradientLight)"
-            class="logo-dot-light"/>
-
-    <circle cx="12" cy="12" r="1.5"
-            fill="url(#logoGradientDark)"
-            class="logo-dot-dark"
-            style="display: none;"/>
+  <g transform="translate(0 10)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 4 20 8v8l-8 4-8-4V8l8-4Z" stroke="url(#mark-gradient)" stroke-width="1.6"/>
+    <path d="M7 15V9l5 3 5-3v6" stroke="url(#mark-gradient)" stroke-width="2"/>
+    <circle cx="12" cy="12" r="1.6" fill="#0f9f8f" stroke="none"/>
   </g>
-
-  <!-- Modern "MITKO X" typography -->
-  <g transform="translate(32, 13)">
-    <!-- MITKO -->
-    <text x="0" y="16"
-          font-family="'Inter', -apple-system, system-ui, sans-serif"
-          font-size="18"
-          font-weight="700"
-          letter-spacing="0.8px"
-          class="logo-text">
-      MITKO
-    </text>
-
-    <!-- X with modern styling -->
-    <text x="62" y="16"
-          font-family="'Inter', -apple-system, system-ui, sans-serif"
-          font-size="18"
-          font-weight="300"
-          letter-spacing="0.5px"
-          class="logo-text-x">
-      X
-    </text>
+  <g fill="#10131a" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <text x="32" y="29" font-size="18" font-weight="750" letter-spacing=".8">MITKO</text>
+    <text x="94" y="29" font-size="18" font-weight="350" letter-spacing=".5">X</text>
   </g>
-
-  <style>
-    /* Light theme (default) */
-    .logo-text, .logo-text-x {
-      fill: #0f172a;
-    }
-    .logo-frame-light, .logo-icon-light, .logo-dot-light {
-      display: block;
-    }
-    .logo-frame-dark, .logo-icon-dark, .logo-dot-dark {
-      display: none;
-    }
-
-    /* Dark theme - brighter, more visible */
-    [data-theme="dark"] .logo-text,
-    [data-theme="dark"] .logo-text-x {
-      fill: #f1f5f9;
-    }
-    [data-theme="dark"] .logo-frame-light,
-    [data-theme="dark"] .logo-icon-light,
-    [data-theme="dark"] .logo-dot-light {
-      display: none;
-    }
-    [data-theme="dark"] .logo-frame-dark,
-    [data-theme="dark"] .logo-icon-dark,
-    [data-theme="dark"] .logo-dot-dark {
-      display: block;
-    }
-
-    /* Hover effect */
-    .logo-text, .logo-text-x {
-      transition: opacity 0.3s ease;
-    }
-  </style>
 </svg>

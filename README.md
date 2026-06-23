@@ -1,6 +1,6 @@
-# mitko x Corporate Website
+# Mitko X Website
 
-A modern, professional static website for mitko x, focused on enterprise technology and AI solutions. This site includes all required legal and compliance policies, a modern responsive design, and is ready for deployment on any static hosting platform.
+A static company website for Mitko X, focused on sovereign and hybrid enterprise AI platforms — running AI inside your own trust boundary — governed AI coding workflows, industrial AI expertise, and regulated environments.
 
 ## Table of Contents
 - [Project Overview](#project-overview)
@@ -17,30 +17,32 @@ A modern, professional static website for mitko x, focused on enterprise technol
 
 ## Project Overview
 This website is designed to:
-- Present mitko x’s enterprise technology and AI offerings
-- Provide clear legal compliance (privacy, cookies, and terms)
-- Offer a modern, mobile-first user experience
+- Present Mitko X’s sovereign and hybrid enterprise AI positioning clearly
+- Explain the hybrid model: sensitive workloads stay local, frontier models are reached only through a governed policy gateway
+- Support public sharing with Open Graph and Twitter metadata
+- Provide legal compliance pages for privacy, cookies, and terms
+- Keep the frontend static, fast, and easy to audit
 
 ## Main Pages
-- `index.html` — Home page with hero, services, and contact
+- `index.html` — Home page with positioning, services, method, and contact
 - `privacy-policy.html` — GDPR-compliant privacy policy
 - `cookies-policy.html` — Cookies usage and compliance
 - `terms-of-service.html` — Terms and conditions for users
 - `404.html` — Custom not found page
 
 ## Directory Structure
-- `css/` — All CSS styles (mainly `styles.css`)
-- `js/` — JavaScript for interactivity
-- `img/` — Logos and image assets
+- `css/styles.css` — Shared site styles
+- `js/main.js` — Navigation, reveal animation, contact, and migration cleanup
+- `img/` — Logo, favicons, and social sharing card
 - `workers-site/` — (Optional) Cloudflare Worker files
 - `robots.txt`, `sitemap.xml` — SEO and indexing helpers
 
 ## Features
-- Fully responsive and mobile-friendly
-- Modern UI with gradients and soft cards
-- Sectioned policies for easy reading
-- Interactive navigation and contact form
-- Custom 404 page
+- Responsive, light-only interface
+- No framework or build step
+- Deterministic social sharing preview
+- Shared policy and error-page styling
+- Minimal JavaScript with reduced-motion support
 
 ## Compliance & Policies
 This site includes:
@@ -60,18 +62,15 @@ python3 -m http.server 8000 --bind 0.0.0.0
 Then open [http://localhost:8000](http://localhost:8000) in your browser.
 
 ## Deployment
-### Cloudflare Pages
+### Static Hosting
 1. Push this repo to GitHub
-2. Connect to Cloudflare Pages
+2. Connect to your static host
 3. Set build output directory to `/` (root)
 4. No build step is needed (static site)
 
-### Other Static Hosts
-You can deploy to Netlify, Vercel, GitHub Pages, or any static host with no changes required.
-
 ## Customization
 - Branding colors and fonts are in `css/styles.css`
-- Logos/images are in `img/`
+- Logo, favicon, and social card assets are in `img/`
 - Edit HTML files for content changes
 
 ## Contributing
@@ -85,4 +84,4 @@ For business inquiries, contact: `web@mitkox.com`
 
 ---
 
-© mitko x / Perla SV Ltd. All rights reserved.
+© Mitko X / Perla SV Ltd. All rights reserved.

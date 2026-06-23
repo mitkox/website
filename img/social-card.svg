@@ -1,0 +1,69 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.5" stop-color="#f7f9fc"/>
+      <stop offset="1" stop-color="#fffaf2"/>
+    </linearGradient>
+    <linearGradient id="line" x1="156" y1="0" x2="1044" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2557d6"/>
+      <stop offset="0.5" stop-color="#0f9f8f"/>
+      <stop offset="1" stop-color="#c47a16"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2557d6"/>
+      <stop offset="1" stop-color="#0f9f8f"/>
+    </linearGradient>
+    <pattern id="grid" width="72" height="72" patternUnits="userSpaceOnUse">
+      <path d="M72 0H0V72" fill="none" stroke="#2557d6" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Card -->
+  <rect x="72" y="64" width="1056" height="502" rx="20" fill="#ffffff" fill-opacity="0.96" stroke="#e4e8ef" stroke-width="1.5"/>
+
+  <!-- Top accent line -->
+  <rect x="156" y="130" width="888" height="3" rx="1.5" fill="url(#line)"/>
+
+  <!-- Logo mark -->
+  <g transform="translate(156 168)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 4 28 10v12l-12 6-12-6V10l12-6Z" stroke="url(#mark)" stroke-width="2.2"/>
+    <path d="M9 20V11l7 4 7-4v9" stroke="url(#mark)" stroke-width="2.6"/>
+    <circle cx="16" cy="16" r="2.1" fill="#0f9f8f"/>
+  </g>
+  <text x="200" y="190" font-family="'IBM Plex Mono', Menlo, monospace" font-size="22" font-weight="600" letter-spacing="3" fill="#2557d6">MITKO X</text>
+
+  <!-- Headline -->
+  <g font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" fill="#10131a" font-weight="800">
+    <text x="156" y="290" font-size="66" letter-spacing="-1">Sovereign &amp; Hybrid</text>
+    <text x="156" y="362" font-size="66" letter-spacing="-1">Enterprise AI Platforms</text>
+  </g>
+
+  <!-- Subtitle -->
+  <g font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" fill="#3c4658" font-weight="500">
+    <text x="156" y="440" font-size="27">Local AI, governed model routing, and hybrid AI</text>
+    <text x="156" y="478" font-size="27">&#8212; all inside your own trust boundary.</text>
+  </g>
+
+  <!-- Principle chips -->
+  <g font-family="'IBM Plex Mono', Menlo, monospace" font-size="16" font-weight="500" fill="#10131a">
+    <g>
+      <rect x="156" y="506" width="180" height="34" rx="17" fill="#ffffff" stroke="#e4e8ef"/>
+      <circle cx="178" cy="523" r="4" fill="#2557d6"/>
+      <text x="192" y="528">Data residency</text>
+    </g>
+    <g>
+      <rect x="348" y="506" width="288" height="34" rx="17" fill="#ffffff" stroke="#e4e8ef"/>
+      <circle cx="370" cy="523" r="4" fill="#0f9f8f"/>
+      <text x="384" y="528">No training on your data</text>
+    </g>
+    <g>
+      <rect x="648" y="506" width="200" height="34" rx="17" fill="#ffffff" stroke="#e4e8ef"/>
+      <circle cx="670" cy="523" r="4" fill="#c47a16"/>
+      <text x="684" y="528">Air-gap capable</text>
+    </g>
+  </g>
+</svg>
