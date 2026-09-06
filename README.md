@@ -1,87 +1,36 @@
-# Mitko X Website
+# Mitko X
 
-A static company website for Mitko X, focused on sovereign and hybrid enterprise AI platforms — running AI inside your own trust boundary — governed AI coding workflows, industrial AI expertise, and regulated environments.
+Emerging AI into production for enterprise, industry, and defense.
 
-## Table of Contents
-- [Project Overview](#project-overview)
-- [Main Pages](#main-pages)
-- [Directory Structure](#directory-structure)
-- [Features](#features)
-- [Compliance & Policies](#compliance--policies)
-- [Local Development](#local-development)
-- [Deployment](#deployment)
-- [Customization](#customization)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+## GitHub → Cloudflare
 
-## Project Overview
-This website is designed to:
-- Present Mitko X’s sovereign and hybrid enterprise AI positioning clearly
-- Explain the hybrid model: sensitive workloads stay local, frontier models are reached only through a governed policy gateway
-- Support public sharing with Open Graph and Twitter metadata
-- Provide legal compliance pages for privacy, cookies, and terms
-- Keep the frontend static, fast, and easy to audit
+Work directly with this repository. The website source is `index.html`, `css/styles.css`, `js/main.js`, the policy/error HTML pages, and `img/`.
 
-## Main Pages
-- `index.html` — Home page with positioning, services, method, and contact
-- `privacy-policy.html` — GDPR-compliant privacy policy
-- `cookies-policy.html` — Cookies usage and compliance
-- `terms-of-service.html` — Terms and conditions for users
-- `404.html` — Custom not found page
+Review the changes, then commit and push through your usual GitHub workflow. Your existing Cloudflare Git integration builds/deploys the configured branch. This redesign does not change the domain, hosting configuration, production branch, or Git remotes. No ZIP upload or new hosting service is required.
 
-## Directory Structure
-- `css/styles.css` — Shared site styles
-- `js/main.js` — Navigation, reveal animation, contact, and migration cleanup
-- `img/` — Logo, favicons, and social sharing card
-- `workers-site/` — (Optional) Cloudflare Worker files
-- `robots.txt`, `sitemap.xml` — SEO and indexing helpers
+There is no frontend dependency installation or framework build. Keep the current Cloudflare build settings. `scripts/build.py` remains an optional helper for configurations that already publish a `dist/` directory; generated artifacts are not the source of truth.
 
-## Features
-- Responsive, light-only interface
-- No framework or build step
-- Deterministic social sharing preview
-- Shared policy and error-page styling
-- Minimal JavaScript with reduced-motion support
-
-## Compliance & Policies
-This site includes:
-- Privacy Policy (`privacy-policy.html`)
-- Cookies Policy (`cookies-policy.html`)
-- Terms of Service (`terms-of-service.html`)
-
-All policies are written for GDPR and EU compliance and are styled for clarity and accessibility.
-
-## Local Development
-To preview or develop locally, use any static HTTP server:
+## Local preview
 
 ```sh
-python3 -m http.server 8000 --bind 0.0.0.0
+python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
-Then open [http://localhost:8000](http://localhost:8000) in your browser.
+Open [localhost:8765](http://localhost:8765).
 
-## Deployment
-### Static Hosting
-1. Push this repo to GitHub
-2. Connect to your static host
-3. Set build output directory to `/` (root)
-4. No build step is needed (static site)
+## Editing
 
-## Customization
-- Branding colors and fonts are in `css/styles.css`
-- Logo, favicon, and social card assets are in `img/`
-- Edit HTML files for content changes
+- **Positioning and copy:** `index.html`. All three sector descriptions exist in the HTML for indexing and no-JavaScript access.
+- **Palette and layout:** the CSS variables and responsive rules in `css/styles.css`.
+- **Motion:** a dependency-free canvas particle field, restrained text entrances, and an animated production path in `js/main.js` and the CSS.
+- **Brand assets:** editable SVG sources in `img/`, with matching favicon/share PNGs.
+- **Contact:** native links to `sales@mitkox.com`, plus an optional clipboard action. No form backend or calendar service is configured.
+- **Headers:** `_headers` supplies Cloudflare Pages response headers. Existing legacy Worker configuration is retained.
 
-## Contributing
-Pull requests and suggestions are welcome! Please open an issue or PR for discussion.
+## Accessibility and performance
 
-## License
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+The sector selector supports arrow keys, Home, End, and ordinary tab navigation. Content is available without JavaScript. Native email links do not rely on JavaScript.
 
-## Contact
-For business inquiries, use the contact form at https://mitkox.com/#contact
+Motion respects the OS preference and an explicit pause button. The canvas renders at up to 30 fps, caps device pixel ratio, and stops its loop when the hero is outside the viewport or the tab is hidden. Reduced motion uses a static scene; a static SVG provides a no-canvas fallback. The frontend makes no external font, library, or tracking requests.
 
----
-
-© Mitko X / Perla SV Ltd. All rights reserved.
+See `REDESIGN.md` for the current design rationale and verification results.
